@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Autodesk.Inventor.Interop">
+        <HintPath>lib\Autodesk.Inventor.Interop.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Forms" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="stdole" Version="17.8.37221" />
+      <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+    </ItemGroup>
+
+
+
+</Project>
