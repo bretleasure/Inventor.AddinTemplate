@@ -16,24 +16,66 @@ namespace InventorAddinTemplate.Buttons
             Definition.OnExecute += Execute;
         }
 
-        public abstract void Execute(NameValueMap context);
-        public abstract string GetButtonName();
-        public virtual string GetInternalName() => Guid.NewGuid().ToString();
-        public abstract string GetDescriptionText();
-        public abstract string GetToolTipText();
-        public abstract string GetLargeIconResourceName();
-        public abstract string GetDarkThemeLargeIconResourceName();
-        public abstract string GetSmallIconResourceName();
-        public abstract string GetDarkThemeSmallIconResourceName();
-        public virtual CommandTypesEnum CommandType => CommandTypesEnum.kEditMaskCmdType;
-        public virtual bool UseLargeIcon => true;
-        public virtual bool ShowText => true;
-
-        public ButtonDefinition Definition { get; }
+        protected abstract void Execute(NameValueMap context);
+        protected abstract string GetRibbonName();
+        protected abstract string GetRibbonTabName();
+        protected abstract string GetRibbonPanelName();
+        protected abstract string GetButtonName();
+        protected virtual string GetInternalName() => Guid.NewGuid().ToString();
+        protected abstract string GetDescriptionText();
+        protected abstract string GetToolTipText();
+        protected abstract string GetLargeIconResourceName();
+        protected abstract string GetDarkThemeLargeIconResourceName();
+        protected abstract string GetSmallIconResourceName();
+        protected abstract string GetDarkThemeSmallIconResourceName();
+        protected virtual CommandTypesEnum CommandType => CommandTypesEnum.kEditMaskCmdType;
+        protected virtual bool UseLargeIcon => true;
+        protected virtual bool ShowText => true;
+        private bool AddToRibbon => true;
+        private ButtonDefinition Definition { get; }
         public bool Enabled
         {
             get => Definition.Enabled;
             set => Definition.Enabled = value;
+        }
+
+        public void Initialize()
+        {
+            if (AddToRibbon)
+            {
+                var uiMan = AddinServer.InventorApp.UserInterfaceManager;
+                var ribbon = uiMan.Ribbons.Cast<Ribbon>()
+                    .FirstOrDefault(r => r.InternalName == GetRibbonName());
+
+                if (ribbon == null)
+                {
+                    throw new Exception($"Ribbon {GetRibbonName()} not found");
+                }
+
+                var tab = ribbon.RibbonTabs.Cast<RibbonTab>()
+                    .FirstOrDefault(t => t.InternalName == GetRibbonTabName());
+
+                if (tab == null)
+                {
+                    tab = ribbon.RibbonTabs.Add(GetRibbonTabName(), GetRibbonTabName(), Guid.NewGuid().ToString());
+                }
+
+                var existingPanel = tab.RibbonPanels.Cast<RibbonPanel>()
+                    .FirstOrDefault(p => p.InternalName == GetRibbonPanelName());
+
+                if (existingPanel != null)
+                {
+                    existingPanel.Delete();
+                }
+                
+                var panel = tab.RibbonPanels.Add(GetRibbonPanelName(), GetRibbonPanelName(), Guid.NewGuid().ToString());
+                
+                panel.CommandControls.AddButton(Definition, UseLargeIcon, ShowText);
+            }
+            else
+            {
+                throw new NotImplementedException("AddToRibbon is false");
+            }
         }
 
         private IPictureDisp LightThemeLargeIcon => CreateIcon(GetLargeIconResourceName());

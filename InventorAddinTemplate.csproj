@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
+        <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -23,6 +24,21 @@
       <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
     </ItemGroup>
 
+
+
+    <ItemGroup>
+      <None Update="InventorAddinTemplate.addin">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="Buttons\Assets\Default.png" />
+      <EmbeddedResource Include="Buttons\Assets\Default-Light.png" />
+      <None Remove="Buttons\Assets\Default-Dark.png" />
+      <EmbeddedResource Include="Buttons\Assets\Default-Dark.png" />
+    </ItemGroup>
 
 
 </Project>

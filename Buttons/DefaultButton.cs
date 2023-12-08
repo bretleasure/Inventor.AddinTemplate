@@ -1,40 +1,35 @@
 ﻿using System.Windows.Forms;
 using Inventor;
 using InventorAddinTemplate.Constants;
+using Ribbons = Inventor.Ribbons;
 
 namespace InventorAddinTemplate.Buttons
 {
     public class DefaultButton : InventorButton
     {
-        public override void Execute(NameValueMap context)
+        protected override void Execute(NameValueMap context)
         {
-            MessageBox.Show("Hello World");
+            MessageBox.Show($"Current document name: {AddinServer.InventorApp.ActiveDocument.DisplayName}");
         }
 
-        public override string GetButtonName() => "Default Button";
+        protected override string GetRibbonName() => Constants.Ribbons.Drawing;
 
-        public override string GetDescriptionText() => "This is the Default Button";
+        protected override string GetRibbonTabName() => Constants.RibbonTabs.PlaceViews;
 
-        public override string GetToolTipText() => "Click this to execute the Default Button";
+        protected override string GetRibbonPanelName() => "InventorAddinTemplate";
 
-        public override string GetLargeIconResourceName()
-        {
-            throw new NotImplementedException();
-        }
+        protected override string GetButtonName() => "DefaultButton";
 
-        public override string GetDarkThemeLargeIconResourceName()
-        {
-            throw new NotImplementedException();
-        }
+        protected override string GetDescriptionText() => "Default Button Description";
 
-        public override string GetSmallIconResourceName()
-        {
-            throw new NotImplementedException();
-        }
+        protected override string GetToolTipText() => "Click the Default Button";
 
-        public override string GetDarkThemeSmallIconResourceName()
-        {
-            throw new NotImplementedException();
-        }
+        protected override string GetLargeIconResourceName() => "InventorAddinTemplate.Buttons.Assets.Default-Light.png";
+
+        protected override string GetDarkThemeLargeIconResourceName() => "InventorAddinTemplate.Buttons.Assets.Default-Dark.png";
+
+        protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
+
+        protected override string GetDarkThemeSmallIconResourceName() => GetDarkThemeLargeIconResourceName();
     }
 }
