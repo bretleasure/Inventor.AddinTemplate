@@ -1,15 +1,16 @@
 ﻿using System.Windows.Forms;
 using Inventor;
 using InventorAddinTemplate.Constants;
+using Application = Inventor.Application;
 using Ribbons = Inventor.Ribbons;
 
 namespace InventorAddinTemplate.Buttons
 {
     public class DefaultButton : InventorButton
     {
-        protected override void Execute(NameValueMap context)
+        protected override void Execute(NameValueMap context, Application inventor)
         {
-            MessageBox.Show($"Current document name: {AddinServer.InventorApp.ActiveDocument.DisplayName}");
+            MessageBox.Show($"Current document name: {inventor.ActiveDocument.DisplayName}");
         }
 
         protected override string GetRibbonName() => Constants.Ribbons.Drawing;

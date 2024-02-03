@@ -13,16 +13,44 @@ namespace InventorAddinTemplate.Buttons
             Definition = AddinServer.InventorApp.CommandManager.ControlDefinitions.AddButtonDefinition(GetButtonName(), GetInternalName(),
                 CommandType, null, GetDescriptionText(), GetToolTipText(), SmallIcon, LargeIcon);
             Definition.Enabled = true;
-            Definition.OnExecute += Execute;
+            Definition.OnExecute += OnExecute;
         }
 
-        protected abstract void Execute(NameValueMap context);
+        private void OnExecute(NameValueMap context) => Execute(context, AddinServer.InventorApp);
+        
+        protected abstract void Execute(NameValueMap context, Inventor.Application inventor);
         protected abstract string GetRibbonName();
+        
+        /// <summary>
+        /// Name of the ribbon tab where the button will be placed. If the tab does not exist, it will be created.
+        /// </summary>
+        /// <returns></returns>
         protected abstract string GetRibbonTabName();
+        
+        /// <summary>
+        /// Name of the ribbon panel where the button will be placed. If the panel does not exist, it will be created.
+        /// </summary>
+        /// <returns></returns>
         protected abstract string GetRibbonPanelName();
+        
+        /// <summary>
+        /// Name of the button. This is the name that will be displayed in the UI.
+        /// </summary>
+        /// <returns></returns>
         protected abstract string GetButtonName();
+        
+        /// <summary>
+        /// Internal name of the button. This is the name that will be used to identify the button in the code. By default, it is a random GUID.
+        /// </summary>
+        /// <returns></returns>
         protected virtual string GetInternalName() => Guid.NewGuid().ToString();
+
         protected abstract string GetDescriptionText();
+        
+        /// <summary>
+        /// Tool tip text that will be displayed when the user hovers over the button.
+        /// </summary>
+        /// <returns></returns>
         protected abstract string GetToolTipText();
         protected abstract string GetLargeIconResourceName();
         protected abstract string GetDarkThemeLargeIconResourceName();
@@ -33,6 +61,10 @@ namespace InventorAddinTemplate.Buttons
         protected virtual bool ShowText => true;
         private bool AddToRibbon => true;
         private ButtonDefinition Definition { get; }
+        
+        /// <summary>
+        /// Controls whether the button is enabled or not. If false, the button will be disabled (greyed out) and cannot be clicked.
+        /// </summary>
         public bool Enabled
         {
             get => Definition.Enabled;
