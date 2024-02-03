@@ -14,23 +14,24 @@ namespace InventorAddinTemplate
     [Guid("25E7585D-00D9-47C6-8E1B-734A2186383A")]
     public class AddinServer : Inventor.ApplicationAddInServer
     {
+        // The Inventor application instance
         public static Inventor.Application InventorApp;
 
         #region ApplicationAddInServer Members
 
+        /// <summary>
+        /// This method is called by Inventor when it loads the addin.
+        /// The AddInSiteObject provides access to the Inventor Application object.
+        /// The FirstTime flag indicates if the addin is loaded for the first time.
+        /// </summary>
         public void Activate(Inventor.ApplicationAddInSite addInSiteObject, bool firstTime)
         {
-            // This method is called by Inventor when it loads the addin.
-            // The AddInSiteObject provides access to the Inventor Application object.
-            // The FirstTime flag indicates if the addin is loaded for the first time.            
-
-            // Initialize AddIn members.
             InventorApp = addInSiteObject.Application;
-
             InventorApp.ApplicationEvents.OnApplicationOptionChange += UpdateButtons;
 
             try
             {
+                // If the addin is loaded for the first time, initialize the UI components
                 if (firstTime)
                 {
                     InitializeUIComponents();
@@ -43,6 +44,9 @@ namespace InventorAddinTemplate
 
         }
 
+        /// <summary>
+        /// Initializes the UI components of the addin.
+        /// </summary>
         private void InitializeUIComponents()
         {
             var buttons = Assembly.GetAssembly(typeof(InventorButton)).GetTypes()
@@ -56,46 +60,51 @@ namespace InventorAddinTemplate
                 button.Initialize();
             }
         }
-        
+
+        /// <summary>
+        /// Updates the buttons when the application options change.
+        /// </summary>
         private void UpdateButtons(EventTimingEnum beforeOrAfter, NameValueMap context, out HandlingCodeEnum handlingCode)
         {
             if (beforeOrAfter == EventTimingEnum.kAfter)
             {
                 InitializeUIComponents();
-                
+
                 handlingCode = HandlingCodeEnum.kEventHandled;
             }
-            
+
             handlingCode = HandlingCodeEnum.kEventNotHandled;
         }
 
+        /// <summary>
+        /// This method is called by Inventor when the AddIn is unloaded.
+        /// The AddIn will be unloaded either manually by the user or
+        /// when the Inventor session is terminated.
+        /// </summary>
         public void Deactivate()
         {
-            // This method is called by Inventor when the AddIn is unloaded.
-            // The AddIn will be unloaded either manually by the user or
-            // when the Inventor session is terminated
-
-
-            // Release objects.
             InventorApp = null;
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
 
+        /// <summary>
+        /// This method is now obsolete, you should use the
+        /// ControlDefinition functionality for implementing commands.
+        /// </summary>
         public void ExecuteCommand(int commandID)
         {
-            // Note:this method is now obsolete, you should use the 
-            // ControlDefinition functionality for implementing commands.
         }
 
+        /// <summary>
+        /// This property is provided to allow the AddIn to expose an API
+        /// of its own to other programs. Typically, this  would be done by
+        /// implementing the AddIn's API interface in a class and returning
+        /// that class object through this property.
+        /// </summary>
         public object Automation
         {
-            // This property is provided to allow the AddIn to expose an API 
-            // of its own to other programs. Typically, this  would be done by
-            // implementing the AddIn's API interface in a class and returning 
-            // that class object through this property.
-
             get
             {
                 return null;
