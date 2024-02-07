@@ -16,6 +16,11 @@
         <RepositoryType>git</RepositoryType>
         <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon</Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <Title>Autodesk Inventor Addin Template</Title>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
     </PropertyGroup>
 
     <ItemGroup>
