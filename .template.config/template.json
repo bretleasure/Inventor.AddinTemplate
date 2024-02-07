@@ -20,7 +20,106 @@
         }
       ],
       "defaultValue": "net472"
+    },
+    "packageId": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property packageId cleanup",
+      "replaces": "<PackageId>InventorAddinTemplate</PackageId>",
+      "defaultValue": ""
+    },
+    "title": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property title cleanup",
+      "replaces": "<Title>Autodesk Inventor Addin</Title>",
+      "defaultValue": ""
+    },
+    "authors": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property authors cleanup",
+      "replaces": "<Authors>Bret Leasure</Authors>",
+      "defaultValue": ""
+    },
+    "copyright": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property copyright cleanup",
+      "replaces": "<Copyright>2024</Copyright>",
+      "defaultValue": ""
+    },
+    "decription": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property decription cleanup",
+      "replaces": "<Description>Templates to use when creating an application for Adatum Corporation.</Description>",
+      "defaultValue": ""
+    },
+    "tags": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property tags cleanup",
+      "replaces": "<PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>",
+      "defaultValue": ""
+    },
+    "url": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property url cleanup",
+      "replaces": "<PackageProjectUrl>https://github.com/bretleasure/InventorAddinTemplate</PackageProjectUrl>",
+      "defaultValue": ""
+    },
+    "readme": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property readme cleanup",
+      "replaces": "<PackageReadmeFile>README.md</PackageReadmeFile>",
+      "defaultValue": ""
+    },
+    "license": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property license cleanup",
+      "replaces": "<PackageLicenseExpression>MIT</PackageLicenseExpression>",
+      "defaultValue": ""
+    },
+    "packagetype": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property packagetype cleanup",
+      "replaces": "<PackageType>Template</PackageType>",
+      "defaultValue": ""
+    },
+    "includeBuildOutput": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property includeBuildOutput cleanup",
+      "replaces": "<IncludeBuildOutput>false</IncludeBuildOutput>",
+      "defaultValue": ""
+    },
+    "contentTargetFolders": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property contentTargetFolders cleanup",
+      "replaces": "<ContentTargetFolders>content</ContentTargetFolders>",
+      "defaultValue": ""
+    },
+    "noWarn": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property noWarn cleanup",
+      "replaces": "<NoWarn>$(NoWarn);NU5128</NoWarn>",
+      "defaultValue": ""
+    },
+    "nodeFaultExcludes": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property nodeFaultExcludes cleanup",
+      "replaces": "<NoDefaultExcludes>true</NoDefaultExcludes>",
+      "defaultValue": ""
     }
+
   },
   "guids":[
     "25E7585D-00D9-47C6-8E1B-734A2186383A"

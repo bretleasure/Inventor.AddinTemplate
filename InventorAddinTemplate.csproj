@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>        
@@ -8,19 +9,22 @@
         <PackageId>InventorAddinTemplate</PackageId>
         <Title>Autodesk Inventor Addin</Title>
         <Authors>Bret Leasure</Authors>
+        <Copyright>2024</Copyright>
         <Description>Templates to use when creating an application for Adatum Corporation.</Description>
-        <PackageTags>Autodesk;Inventor Addin;Template;CAD;Inventor Plugin</PackageTags>
+        <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
         <PackageProjectUrl>https://github.com/bretleasure/InventorAddinTemplate</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
         <PackageType>Template</PackageType>
-        <TargetFramework>net472</TargetFramework>
-        <IncludeContentInPack>true</IncludeContentInPack>
+
+        <PackageType>Template</PackageType>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
         <NoWarn>$(NoWarn);NU5128</NoWarn>
         <NoDefaultExcludes>true</NoDefaultExcludes>
+        <Version />
+        <RepositoryUrl>https://github.com/bretleasure/InventorAddinTemplate</RepositoryUrl>
         
         
         
