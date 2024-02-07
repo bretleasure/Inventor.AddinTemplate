@@ -1,9 +1,9 @@
 {
   "author": "Bret Leasure",
-  "name": "Autodesk Inventor Addin Template",
+  "name": "Autodesk Inventor Addin",
   "description": "A template for creating an Autodesk Inventor Addin with buttons in the ribbon",
   "identity": "BretLeasure.InventorAddinTemplate",
-  "shortName": "InventorAddinTemplate",
+  "shortName": "inventor-addin",
   "tags": {
     "language": "C#",
     "type": "project"

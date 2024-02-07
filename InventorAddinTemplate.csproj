@@ -1,27 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net472</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PackageType>Template</PackageType>
+        <Nullable>enable</Nullable>        
 
+        <PackageId>InventorAddinTemplate</PackageId>
+        <Title>Autodesk Inventor Addin</Title>
         <Authors>Bret Leasure</Authors>
-        <Copyright>2024</Copyright>
-        <PackageTags>Autodesk Inventor Addin Template CAD</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <RepositoryUrl>https://github.com/bretleasure/InventorAddinTemplate</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon</Description>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Description>Templates to use when creating an application for Adatum Corporation.</Description>
+        <PackageTags>Autodesk;Inventor Addin;Template;CAD;Inventor Plugin</PackageTags>
+        <PackageProjectUrl>https://github.com/bretleasure/InventorAddinTemplate</PackageProjectUrl>
 
-        <Title>Autodesk Inventor Addin Template</Title>
+        <PackageType>Template</PackageType>
+        <TargetFramework>net472</TargetFramework>
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        
+        
+        
     </PropertyGroup>
+
+    <PropertyGroup>
+        <LocalizeTemplates>false</LocalizeTemplates>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git;**\.idea;**\.vs" />
+        <Compile Remove="**\*" />
+    </ItemGroup>
 
     <ItemGroup>
       <Reference Include="Autodesk.Inventor.Interop">
