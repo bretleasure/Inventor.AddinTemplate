@@ -29,8 +29,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git;**\.idea;**\.vs" />
-        <Compile Remove="**\*" />
+        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
+        <Content Remove="azure-pipelines.yml" />
+        <Content Remove=".gitignore" />
     </ItemGroup>
 
     <ItemGroup>
