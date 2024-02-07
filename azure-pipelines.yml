@@ -43,11 +43,12 @@ steps:
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'GITVERSION_NuGetVersion'
     configuration: 'release'
+    arguments: --no-build
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)\bin\Release\net472'
-    includeRootFolder: false
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: true
     archiveType: 'zip'
     archiveFile: 'artifacts/template/$(Build.DefinitionName)-v$(Build.BuildNumber).zip'
     replaceExistingArchive: true
