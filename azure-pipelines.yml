@@ -49,7 +49,7 @@ steps:
     rootFolderOrFile: '$(Build.SourcesDirectory)\bin\Release\net472'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: 'artifacts/template/$(Build.DefinitionName)Template-v$(Build.BuildNumber).zip'
+    archiveFile: 'artifacts/template/$(Build.DefinitionName)-v$(Build.BuildNumber).zip'
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
