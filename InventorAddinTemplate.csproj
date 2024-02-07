@@ -5,6 +5,17 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageType>Template</PackageType>
+
+        <Authors>Bret Leasure</Authors>
+        <Copyright>2024</Copyright>
+        <PackageTags>Autodesk Inventor Addin Template CAD</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <RepositoryUrl>https://github.com/bretleasure/InventorAddinTemplate</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,6 +49,10 @@
       <EmbeddedResource Include="Buttons\Assets\Default-Light.png" />
       <None Remove="Buttons\Assets\Default-Dark.png" />
       <EmbeddedResource Include="Buttons\Assets\Default-Dark.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 
