@@ -11,6 +11,8 @@
         <Description>Templates to use when creating an application for Adatum Corporation.</Description>
         <PackageTags>Autodesk;Inventor Addin;Template;CAD;Inventor Plugin</PackageTags>
         <PackageProjectUrl>https://github.com/bretleasure/InventorAddinTemplate</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
         <PackageType>Template</PackageType>
         <TargetFramework>net472</TargetFramework>
