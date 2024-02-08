@@ -4,14 +4,14 @@
 
 ## Overview
 
-The goal of this template is to make crafting an Inventor addin as easy as possible. All that is required is to create the buttons and write the code that will be executed when the buttons are clicked. The template will handle adding the buttons to the ribbon.
+The goal of this template is to make creating an Inventor addin as easy as possible. All that is required is to create the buttons and write the code that will be executed when the buttons are clicked. The template will handle adding the buttons to the ribbon.
 
 
 The template is designed to be used with Visual Studio or JetBrains Rider.
 
 ## Installation
 
-The latest version of template can be installed from [NuGet.org](https://www.nuget.org/packages/InventorAddinTemplate/) using the dotnet CLI.
+The latest version of template can be installed from [NuGet.org](https://www.nuget.org/packages/Inventor.AddinTemplate/) using the dotnet CLI.
 
 ```powershell
 dotnet new install Inventor.AddinTemplate
