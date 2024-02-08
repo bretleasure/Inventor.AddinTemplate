@@ -1,6 +1,7 @@
 {
   "author": "Bret Leasure",
   "name": "Autodesk Inventor Addin",
+  "classifications": [ "Desktop", "Inventor", "Autodesk", "Addin", "Template", "CAD", "Plugin" ],
   "description": "A template for creating an Autodesk Inventor Addin with buttons in the ribbon",
   "identity": "BretLeasure.Inventor.AddinTemplate",
   "shortName": "inventor-addin",
