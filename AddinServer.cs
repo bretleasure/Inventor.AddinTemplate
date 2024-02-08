@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Inventor;
-using InventorAddinTemplate.Buttons;
+using Inventor.AddinTemplate.Buttons;
 
-namespace InventorAddinTemplate
+namespace Inventor.AddinTemplate
 {
     /// <summary>
     /// This is the primary AddIn Server class that implements the ApplicationAddInServer interface

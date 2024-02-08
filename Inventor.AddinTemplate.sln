@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorAddinTemplate", "InventorAddinTemplate.csproj", "{FD120147-C25C-4B49-A35B-E1FF716287BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventor.AddinTemplate", "Inventor.AddinTemplate.csproj", "{FD120147-C25C-4B49-A35B-E1FF716287BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

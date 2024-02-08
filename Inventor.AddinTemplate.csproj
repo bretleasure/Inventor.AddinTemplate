@@ -6,17 +6,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>        
 
-        <PackageId>InventorAddinTemplate</PackageId>
+        <PackageId>Inventor.AddinTemplate</PackageId>
         <Title>Autodesk Inventor Addin</Title>
         <Authors>Bret Leasure</Authors>
         <Copyright>2024</Copyright>
         <Description>Templates to use when creating an application for Adatum Corporation.</Description>
         <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
-        <PackageProjectUrl>https://github.com/bretleasure/InventorAddinTemplate</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/bretleasure/Inventor.AddinTemplate</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <PackageType>Template</PackageType>
 
         <PackageType>Template</PackageType>
         <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -24,7 +22,7 @@
         <NoWarn>$(NoWarn);NU5128</NoWarn>
         <NoDefaultExcludes>true</NoDefaultExcludes>
         <Version />
-        <RepositoryUrl>https://github.com/bretleasure/InventorAddinTemplate</RepositoryUrl>
+        <RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>
         
         
         
@@ -49,6 +47,7 @@
 
 
     <ItemGroup>
+      <PackageReference Include="Inventor.InternalNames" Version="0.1.1" />
       <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -60,7 +59,7 @@
 
 
     <ItemGroup>
-      <None Update="InventorAddinTemplate.addin">
+      <None Update="Inventor.AddinTemplate.addin">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

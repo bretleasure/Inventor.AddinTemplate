@@ -1,23 +1,21 @@
 ﻿using System.Windows.Forms;
 using Inventor;
-using InventorAddinTemplate.Constants;
-using Application = Inventor.Application;
-using Ribbons = Inventor.Ribbons;
+using Inventor.InternalNames.Ribbon;
 
-namespace InventorAddinTemplate.Buttons
+namespace Inventor.AddinTemplate.Buttons
 {
     public class DefaultButton : InventorButton
     {
-        protected override void Execute(NameValueMap context, Application inventor)
+        protected override void Execute(NameValueMap context, Inventor.Application inventor)
         {
             MessageBox.Show($"Current document name: {inventor.ActiveDocument.DisplayName}");
         }
 
-        protected override string GetRibbonName() => Constants.Ribbons.Drawing;
+        protected override string GetRibbonName() => InventorRibbons.Drawing;
 
-        protected override string GetRibbonTabName() => Constants.RibbonTabs.PlaceViews;
+        protected override string GetRibbonTabName() => DrawingRibbonTabs.PlaceViews;
 
-        protected override string GetRibbonPanelName() => "InventorAddinTemplate";
+        protected override string GetRibbonPanelName() => "Inventor.AddinTemplate";
 
         protected override string GetButtonName() => "DefaultButton";
 
@@ -25,9 +23,9 @@ namespace InventorAddinTemplate.Buttons
 
         protected override string GetToolTipText() => "Click the Default Button";
 
-        protected override string GetLargeIconResourceName() => "InventorAddinTemplate.Buttons.Assets.Default-Light.png";
+        protected override string GetLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Light.png";
 
-        protected override string GetDarkThemeLargeIconResourceName() => "InventorAddinTemplate.Buttons.Assets.Default-Dark.png";
+        protected override string GetDarkThemeLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Dark.png";
 
         protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
 

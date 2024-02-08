@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Inventor;
 using IPictureDisp = Inventor.IPictureDisp;
 
-namespace InventorAddinTemplate.Buttons
+namespace Inventor.AddinTemplate.Buttons
 {
     public abstract class InventorButton
     {
