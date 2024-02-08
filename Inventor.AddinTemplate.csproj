@@ -44,7 +44,7 @@
 
 
     <ItemGroup>
-      <PackageReference Include="Inventor.InternalNames" Version="0.1.1" />
+      <PackageReference Include="Inventor.InternalNames" Version="0.1.3" />
       <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
