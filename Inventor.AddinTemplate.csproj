@@ -22,9 +22,6 @@
         <NoWarn>$(NoWarn);NU5128</NoWarn>
         <NoDefaultExcludes>true</NoDefaultExcludes>
         <RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>
-        
-        
-        
     </PropertyGroup>
 
     <PropertyGroup>
@@ -34,6 +31,7 @@
     <ItemGroup>
         <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
         <Content Remove="azure-pipelines.yml" />
+        <Content Remove="README.md" />
         <Content Remove=".gitignore" />
     </ItemGroup>
 
