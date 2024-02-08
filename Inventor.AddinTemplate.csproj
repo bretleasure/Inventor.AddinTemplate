@@ -10,7 +10,7 @@
         <Title>Autodesk Inventor Addin</Title>
         <Authors>Bret Leasure</Authors>
         <Copyright>2024</Copyright>
-        <Description>Templates to use when creating an application for Adatum Corporation.</Description>
+        <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon.</Description>
         <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
         <PackageProjectUrl>https://github.com/bretleasure/Inventor.AddinTemplate</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
