@@ -76,6 +76,13 @@
       "replaces": "<PackageProjectUrl>https://github.com/bretleasure/Inventor.AddinTemplate</PackageProjectUrl>",
       "defaultValue": ""
     },
+    "url2": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "project property url cleanup",
+      "replaces": "<RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>",
+      "defaultValue": ""
+    },
     "readme": {
       "type": "parameter",
       "datatype": "text",

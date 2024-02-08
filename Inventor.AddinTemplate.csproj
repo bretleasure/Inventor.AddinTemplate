@@ -21,7 +21,6 @@
         <ContentTargetFolders>content</ContentTargetFolders>
         <NoWarn>$(NoWarn);NU5128</NoWarn>
         <NoDefaultExcludes>true</NoDefaultExcludes>
-        <Version />
         <RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>
         
         

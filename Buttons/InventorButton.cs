@@ -65,7 +65,7 @@ namespace Inventor.AddinTemplate.Buttons
         /// <summary>
         /// Controls whether the button is enabled or not. If false, the button will be disabled (greyed out) and cannot be clicked.
         /// </summary>
-        public bool Enabled
+        public virtual bool Enabled
         {
             get => Definition.Enabled;
             set => Definition.Enabled = value;
