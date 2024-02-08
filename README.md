@@ -11,7 +11,11 @@ The template is designed to be used with Visual Studio or JetBrains Rider.
 
 ## Installation
 
-The template can be installed using the dotnet CLI. The command to install the latest version can be found on the [NuGet.org page](https://www.nuget.org/packages/InventorAddinTemplate/).
+The latest version of template can be installed from [NuGet.org](https://www.nuget.org/packages/InventorAddinTemplate/) using the dotnet CLI.
+
+```powershell
+dotnet new install Inventor.AddinTemplate
+```
 
 ## Usage
 
