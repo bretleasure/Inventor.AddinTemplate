@@ -3,8 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>        
+        <ImplicitUsings>enable</ImplicitUsings>  
 
         <PackageId>Inventor.AddinTemplate</PackageId>
         <Title>Autodesk Inventor Addin</Title>
@@ -33,6 +32,7 @@
         <Content Remove="azure-pipelines.yml" />
         <Content Remove="README.md" />
         <Content Remove=".gitignore" />
+        <Content Remove="GitVersion.yml" />
     </ItemGroup>
 
     <ItemGroup>

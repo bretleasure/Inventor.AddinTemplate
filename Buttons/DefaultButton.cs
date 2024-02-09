@@ -4,7 +4,7 @@ using Inventor.InternalNames.Ribbon;
 
 namespace Inventor.AddinTemplate.Buttons
 {
-    public class DefaultButton : InventorButton
+    internal class DefaultButton : InventorButton
     {
         protected override void Execute(NameValueMap context, Inventor.Application inventor)
         {

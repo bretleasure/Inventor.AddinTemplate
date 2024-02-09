@@ -16,6 +16,10 @@ namespace Inventor.AddinTemplate
     {
         // The Inventor application instance
         public static Inventor.Application InventorApp;
+        
+        public static Guid AddinGuid = new("25E7585D-00D9-47C6-8E1B-734A2186383A");
+        
+        List<InventorButton> _buttons;
 
         #region ApplicationAddInServer Members
 
@@ -49,16 +53,14 @@ namespace Inventor.AddinTemplate
         /// </summary>
         private void InitializeUIComponents()
         {
-            var buttons = Assembly.GetAssembly(typeof(InventorButton)).GetTypes()
+            _buttons = Assembly.GetAssembly(typeof(InventorButton)).GetTypes()
                 .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(InventorButton)))
                 .Select(Activator.CreateInstance)
                 .Cast<InventorButton>()
-                .Where(button => button.Enabled);
+                .Where(button => button.Enabled)
+                .ToList();
 
-            foreach (var button in buttons)
-            {
-                button.Initialize();
-            }
+            _buttons.ForEach(b => b.Initialize());
         }
 
         /// <summary>
@@ -68,6 +70,8 @@ namespace Inventor.AddinTemplate
         {
             if (beforeOrAfter == EventTimingEnum.kAfter)
             {
+                _buttons.ForEach(b => b.Dispose());
+                
                 InitializeUIComponents();
 
                 handlingCode = HandlingCodeEnum.kEventHandled;
