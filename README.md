@@ -45,9 +45,13 @@ All button classes in this project will be loaded into the Inventor UI. A button
 
 This method is called when the button is clicked. This is where the code that the button will execute should be placed.
 
+#### Ribbon
+
+The `GetRibbonName()` method is used to specify the Ribbon the button will be added to. The available ribbon names can be found using the [Inventor.InternalNames](https://www.nuget.org/packages/Inventor.InternalNames) package that is included with this template.
+
 #### Ribbon Tabs and Panels
 
-The `GetRibbonName()` and `GetRibbonPanelName()` methods are used to specify the tab and panel that the button will be added to. If the name matches the `InternalName` of an existing tab or panel the button will be added to that tab or panel. Otherwise a new tab or panel will be created.
+The `GetRibbonTabName()` and `GetRibbonPanelName()` methods are used to specify the tab and panel that the button will be added to. If the name matches the `InternalName` of an existing tab or panel the button will be added to that tab or panel. Otherwise a new tab or panel will be created.
 
 Internal names can be found using the [Inventor.InternalNames](https://www.nuget.org/packages/Inventor.InternalNames) package that is included with this template.
 
