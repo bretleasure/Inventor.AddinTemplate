@@ -52,6 +52,7 @@ namespace Inventor.AddinTemplate.Buttons
         protected virtual CommandTypesEnum CommandType => CommandTypesEnum.kEditMaskCmdType;
         protected virtual bool UseLargeIcon => true;
         protected virtual bool ShowText => true;
+        internal virtual int SequenceNumber => 0;
         private bool AddToRibbon => true;
 
         private Ribbon _cachedRibbon;

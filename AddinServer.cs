@@ -58,6 +58,7 @@ namespace Inventor.AddinTemplate
                 .Select(Activator.CreateInstance)
                 .Cast<InventorButton>()
                 .Where(button => button.Enabled)
+                .OrderBy(button => button.SequenceNumber)
                 .ToList();
 
             _buttons.ForEach(b => b.Initialize());
