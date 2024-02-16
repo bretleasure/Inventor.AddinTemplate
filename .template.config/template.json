@@ -3,7 +3,7 @@
   "author": "Bret Leasure",
   "name": "Autodesk Inventor Addin",
   "classifications": [ "Desktop", "Inventor", "Autodesk", "Addin", "Template", "CAD", "Plugin" ],
-  "description": "A template for creating an Autodesk Inventor Addin with buttons in the ribbon",
+  "description": "Easy to use template for creating Autodesk Inventor Addins",
   "identity": "BretLeasure.Inventor.AddinTemplate",
   "shortName": "inventor-addin",
   "default": "AutodeskInventorAddin",
@@ -20,6 +20,9 @@
       "choices": [
         {
           "choice": "net472"
+        },
+        {
+          "choice": "net48"
         }
       ],
       "defaultValue": "net472"
