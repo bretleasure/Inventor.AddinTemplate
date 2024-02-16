@@ -11,7 +11,6 @@
         <Copyright>2024</Copyright>
         <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon.</Description>
         <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
-        <PackageProjectUrl>https://github.com/bretleasure/Inventor.AddinTemplate</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
