@@ -43,7 +43,7 @@ namespace Inventor.AddinTemplate
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not load Addin.");
+                MessageBox.Show("Could not load Inventor.AddinTemplate.");
             }
 
         }
