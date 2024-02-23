@@ -25,7 +25,8 @@
           "choice": "net48"
         }
       ],
-      "defaultValue": "net472"
+      "defaultValue": "net472",
+      "replaces": "net472"
     },
     "skipRestore": {
       "type": "parameter",
@@ -65,7 +66,7 @@
       "type": "parameter",
       "datatype": "text",
       "description": "project property decription cleanup",
-      "replaces": "<Description>Templates to use when creating an application for Adatum Corporation.</Description>",
+      "replaces": "<Description>Easy to use template for creating Autodesk Inventor Addins</Description>",
       "defaultValue": ""
     },
     "tags": {

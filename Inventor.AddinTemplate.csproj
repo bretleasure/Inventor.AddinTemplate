@@ -9,7 +9,7 @@
         <Title>Autodesk Inventor Addin</Title>
         <Authors>Bret Leasure</Authors>
         <Copyright>2024</Copyright>
-        <Description>A template for creating an Autodesk Inventor Addin with buttons in the ribbon.</Description>
+        <Description>Easy to use template for creating Autodesk Inventor Addins</Description>
         <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
