@@ -30,5 +30,14 @@ namespace Inventor.AddinTemplate.Buttons
         protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
 
         protected override string GetDarkThemeSmallIconResourceName() => GetDarkThemeLargeIconResourceName();
+        internal override ProgressiveToolTipOptions ProgressiveToolTipOptions => new ProgressiveToolTipOptions
+        {
+            Description = "Default Button Description",
+            ExpandedDescription = "This is the expanded description of the default button.",
+            Image = null,
+            IsProgressive = false,
+            Title = "Default Button",
+            Video = null
+        };
     }
 }

@@ -53,68 +53,70 @@ namespace Inventor.AddinTemplate.Buttons
         protected virtual bool UseLargeIcon => true;
         protected virtual bool ShowText => true;
         internal virtual int SequenceNumber => 0;
+        internal virtual ProgressiveToolTipOptions ProgressiveToolTipOptions => null;
+        
         private bool AddToRibbon => true;
 
-        private Ribbon _cachedRibbon;
+        private Ribbon _ribbon;
         private Ribbon Ribbon
         {
             get
             {
-                if (_cachedRibbon == null)
+                if (_ribbon == null)
                 {
-                    _cachedRibbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
+                    _ribbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
                         .Cast<Ribbon>()
                         .FirstOrDefault(r => r.InternalName == GetRibbonName());
                     
-                    if (_cachedRibbon == null)
+                    if (_ribbon == null)
                     {
                         throw new Exception($"Ribbon {GetRibbonName()} not found");
                     }
                 }
 
-                return _cachedRibbon;
+                return _ribbon;
             }
         }
 
-        private RibbonTab _cachedRibbonTab;
+        private RibbonTab _ribbonTab;
         private RibbonTab RibbonTab
         {
             get
             {
-                if (_cachedRibbonTab == null)
+                if (_ribbonTab == null)
                 {
-                    _cachedRibbonTab = Ribbon.RibbonTabs
+                    _ribbonTab = Ribbon.RibbonTabs
                         .Cast<RibbonTab>()
                         .FirstOrDefault(t => t.InternalName == GetRibbonTabName());
                     
-                    if (_cachedRibbonTab == null)
+                    if (_ribbonTab == null)
                     {
-                        _cachedRibbonTab = Ribbon.RibbonTabs.Add(GetRibbonTabName(), GetRibbonTabName(), Guid.NewGuid().ToString());
+                        _ribbonTab = Ribbon.RibbonTabs.Add(GetRibbonTabName(), GetRibbonTabName(), Guid.NewGuid().ToString());
                     }
                 }
 
-                return _cachedRibbonTab;
+                return _ribbonTab;
             }
         }
 
-        private RibbonPanel _cachedRibbonPanel;
+        private RibbonPanel _ribbonPanel;
         private RibbonPanel RibbonPanel
         {
             get
             {
-                if (_cachedRibbonPanel == null)
+                if (_ribbonPanel == null)
                 {
-                    _cachedRibbonPanel = RibbonTab.RibbonPanels
+                    _ribbonPanel = RibbonTab.RibbonPanels
                         .Cast<RibbonPanel>()
                         .FirstOrDefault(p => p.InternalName == GetRibbonPanelName());
                     
-                    if (_cachedRibbonPanel == null)
+                    if (_ribbonPanel == null)
                     {
-                        _cachedRibbonPanel = RibbonTab.RibbonPanels.Add(GetRibbonPanelName(), GetRibbonPanelName(), Guid.NewGuid().ToString());
+                        _ribbonPanel = RibbonTab.RibbonPanels.Add(GetRibbonPanelName(), GetRibbonPanelName(), Guid.NewGuid().ToString());
                     }
                 }
 
-                return _cachedRibbonPanel;
+                return _ribbonPanel;
             }
         }
 
@@ -130,10 +132,35 @@ namespace Inventor.AddinTemplate.Buttons
                     
                     _buttonDefinition.Enabled = true;
                     _buttonDefinition.OnExecute += OnExecute;
+
+                    if (ProgressiveToolTipOptions != null)
+                    {
+                        _buttonDefinition.ProgressiveToolTip.Title = ProgressiveToolTipOptions.Title;
+                        _buttonDefinition.ProgressiveToolTip.Description = ProgressiveToolTipOptions.Description;
+                        _buttonDefinition.ProgressiveToolTip.ExpandedDescription = ProgressiveToolTipOptions.ExpandedDescription;
+
+                        if (ProgressiveToolTipOptions.Image != null)
+                        {
+                            _buttonDefinition.ProgressiveToolTip.Image = ProgressiveToolTipOptions.Image;
+                        }
+                        
+                        if (ProgressiveToolTipOptions.Video != null)
+                        {
+                            _buttonDefinition.ProgressiveToolTip.Video = ProgressiveToolTipOptions.Video;
+                        }
+                        _buttonDefinition.ProgressiveToolTip.IsProgressive = ProgressiveToolTipOptions.IsProgressive;
+                        
+                        _buttonDefinition.OnHelp += ButtonDefinitionOnOnHelp;
+                    }
                 }
                 
                 return _buttonDefinition;
             }
+        }
+
+        private void ButtonDefinitionOnOnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
+        {
+            throw new NotImplementedException();
         }
 
         private CommandControl _button;
