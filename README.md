@@ -20,8 +20,11 @@ The goal of this template is to make creating an Inventor addin as easy as possi
 ## Getting Started
 
 1. [Installing the and Using this Template](https://github.com/bretleasure/Inventor.AddinTemplate/wiki/Installing-and-Using-this-Template)
+   
 2. [Creating Buttons](https://github.com/bretleasure/Inventor.AddinTemplate/wiki/Creating-Buttons)
+   
 3. [Deploying Your Addin](https://github.com/bretleasure/Inventor.AddinTemplate/wiki/Deploying-Your-Addin)
+   
 4. [Referencing the Inventor Interop](https://github.com/bretleasure/Inventor.AddinTemplate/wiki/Inventor-Interop)
 
 ## Questions and Support
