@@ -45,9 +45,17 @@
           "exclude": [ 
             "**/*.sln",
             "Directory.Packages.props",
-            "LICENSE",
-            
-            ".github/**"]
+            "LICENSE",            
+            ".github/**",
+            "bin/", "obj/", ".git/", ".idea/", ".vs/"
+          ]
+        },
+        { "remove": [
+            "azure-pipelines.yml",
+            "README.md",
+            ".gitignore",
+            "GitVersion.yml"
+          ]
         }
       ]
     }
