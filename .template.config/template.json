@@ -23,6 +23,9 @@
         },
         {
           "choice": "net48"
+        },
+        {
+          "choice": "net8.0-windows"
         }
       ],
       "defaultValue": "net472",
@@ -33,114 +36,22 @@
       "datatype": "bool",
       "description": "If specified, skips the automatic restore of the project on create.",
       "defaultValue": "false"
-    },
-    "packageId": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property packageId cleanup",
-      "replaces": "<PackageId>Inventor.AddinTemplate</PackageId>",
-      "defaultValue": ""
-    },
-    "title": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property title cleanup",
-      "replaces": "<Title>Autodesk Inventor Addin</Title>",
-      "defaultValue": ""
-    },
-    "authors": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property authors cleanup",
-      "replaces": "<Authors>Bret Leasure</Authors>",
-      "defaultValue": ""
-    },
-    "copyright": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property copyright cleanup",
-      "replaces": "<Copyright>2024</Copyright>",
-      "defaultValue": ""
-    },
-    "decription": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property decription cleanup",
-      "replaces": "<Description>Easy to use template for creating Autodesk Inventor Addins</Description>",
-      "defaultValue": ""
-    },
-    "tags": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property tags cleanup",
-      "replaces": "<PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>",
-      "defaultValue": ""
-    },
-    "url": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property url cleanup",
-      "replaces": "<PackageProjectUrl>https://github.com/bretleasure/Inventor.AddinTemplate</PackageProjectUrl>",
-      "defaultValue": ""
-    },
-    "url2": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property url cleanup",
-      "replaces": "<RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>",
-      "defaultValue": ""
-    },
-    "readme": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property readme cleanup",
-      "replaces": "<PackageReadmeFile>README.md</PackageReadmeFile>",
-      "defaultValue": ""
-    },
-    "license": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property license cleanup",
-      "replaces": "<PackageLicenseExpression>MIT</PackageLicenseExpression>",
-      "defaultValue": ""
-    },
-    "packagetype": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property packagetype cleanup",
-      "replaces": "<PackageType>Template</PackageType>",
-      "defaultValue": ""
-    },
-    "includeBuildOutput": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property includeBuildOutput cleanup",
-      "replaces": "<IncludeBuildOutput>false</IncludeBuildOutput>",
-      "defaultValue": ""
-    },
-    "contentTargetFolders": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property contentTargetFolders cleanup",
-      "replaces": "<ContentTargetFolders>content</ContentTargetFolders>",
-      "defaultValue": ""
-    },
-    "noWarn": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property noWarn cleanup",
-      "replaces": "<NoWarn>$(NoWarn);NU5128</NoWarn>",
-      "defaultValue": ""
-    },
-    "nodeFaultExcludes": {
-      "type": "parameter",
-      "datatype": "text",
-      "description": "project property nodeFaultExcludes cleanup",
-      "replaces": "<NoDefaultExcludes>true</NoDefaultExcludes>",
-      "defaultValue": ""
     }
-
   },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ 
+            "**/*.sln",
+            "Directory.Packages.props",
+            "LICENSE",
+            
+            ".github/**"]
+        }
+      ]
+    }
+  ],
   "postActions": [
     {
       "condition": "(!skipRestore)",
@@ -150,7 +61,7 @@
       ],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
       "continueOnError": true
-    }
+    }    
   ],
   "guids":[
     "25E7585D-00D9-47C6-8E1B-734A2186383A"

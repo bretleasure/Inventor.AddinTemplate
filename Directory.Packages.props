@@ -1,0 +1,30 @@
+<Project>
+    <PropertyGroup>
+        <PackageId>Inventor.AddinTemplate</PackageId>
+        <Title>Autodesk Inventor Addin</Title>
+        <Authors>Bret Leasure</Authors>
+        <Copyright>2024</Copyright>
+        <Description>Easy to use template for creating Autodesk Inventor Addins</Description>
+        <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageType>Template</PackageType>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        <RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
+        <Content Remove="azure-pipelines.yml" />
+        <Content Remove="README.md" />
+        <Content Remove=".gitignore" />
+        <Content Remove="GitVersion.yml" />
+    </ItemGroup>
+</Project>
