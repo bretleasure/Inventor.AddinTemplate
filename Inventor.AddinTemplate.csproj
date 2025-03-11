@@ -4,22 +4,6 @@
         <TargetFramework>net472</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>  
-
-        <PackageId>Inventor.AddinTemplate</PackageId>
-        <Title>Autodesk Inventor Addin</Title>
-        <Authors>Bret Leasure</Authors>
-        <Copyright>2024</Copyright>
-        <Description>Easy to use template for creating Autodesk Inventor Addins</Description>
-        <PackageTags>Autodesk Inventor Addin Template CAD Plugin</PackageTags>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <PackageType>Template</PackageType>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
-        <ContentTargetFolders>content</ContentTargetFolders>
-        <NoWarn>$(NoWarn);NU5128</NoWarn>
-        <NoDefaultExcludes>true</NoDefaultExcludes>
-        <RepositoryUrl>https://github.com/bretleasure/Inventor.AddinTemplate</RepositoryUrl>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -27,20 +11,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
-        <Content Remove="azure-pipelines.yml" />
-        <Content Remove="README.md" />
-        <Content Remove=".gitignore" />
-        <Content Remove="GitVersion.yml" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="Autodesk.Inventor.Interop">
         <HintPath>lib\Autodesk.Inventor.Interop.dll</HintPath>
       </Reference>
       <Reference Include="System.Windows.Forms" />
     </ItemGroup>
-
 
     <ItemGroup>
       <PackageReference Include="Inventor.InternalNames" Version="0.4.1" />
@@ -52,14 +27,11 @@
       <PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
     </ItemGroup>
 
-
-
     <ItemGroup>
       <None Update="Inventor.AddinTemplate.addin">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
-
 
     <ItemGroup>
       <None Remove="Buttons\Assets\Default.png" />
@@ -67,10 +39,4 @@
       <None Remove="Buttons\Assets\Default-Dark.png" />
       <EmbeddedResource Include="Buttons\Assets\Default-Dark.png" />
     </ItemGroup>
-
-    <ItemGroup>
-        <None Include="README.md" Pack="true" PackagePath="\" />
-    </ItemGroup>
-
-
 </Project>
