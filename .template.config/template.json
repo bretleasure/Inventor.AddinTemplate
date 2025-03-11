@@ -13,29 +13,28 @@
   },
   "sourceName": "Inventor.AddinTemplate",
   "symbols": {
-    "Framework": {
+    "framework": {
       "type": "parameter",
-      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "description": "Select the target .NET framework",
+      "defaultValue": "net472",
+      "choices": [
+        { "choice": "net472", "description": ".NETFramework 4.7.2" },
+        { "choice": "net48", "description": ".NETFramework 4.8" },
+        { "choice": "net8.0-windows", "description": ".NET 8" }
+      ]
+    },
+    "Inventor Version": {
+      "type": "parameter",
+      "description": "The version of Inventor to launch for debugging.",
       "datatype": "choice",
       "choices": [
-        {
-          "choice": "net472"
-        },
-        {
-          "choice": "net48"
-        },
-        {
-          "choice": "net8.0-windows"
-        }
+        { "choice": "2023" },
+        { "choice": "2024" },
+        { "choice": "2025" }
       ],
-      "defaultValue": "net472",
-      "replaces": "net472"
-    },
-    "skipRestore": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "If specified, skips the automatic restore of the project on create.",
-      "defaultValue": "false"
+      "defaultValue": "2025",
+      "replaces": "2025"
     }
   },
   "sources": [
