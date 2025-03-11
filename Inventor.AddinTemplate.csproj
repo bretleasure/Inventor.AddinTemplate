@@ -39,4 +39,8 @@
       <None Remove="Buttons\Assets\Default-Dark.png" />
       <EmbeddedResource Include="Buttons\Assets\Default-Dark.png" />
     </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**;" />
+    </ItemGroup>
 </Project>

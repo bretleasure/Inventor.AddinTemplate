@@ -42,12 +42,17 @@
     {
       "modifiers": [
         {
-          "exclude": [ 
+          "exclude": [
             "**/*.sln",
             "Directory.Packages.props",
             "LICENSE",
-            
-            ".github/**"]
+            "azure-pipelines.yml",
+            "README.md",
+            ".gitignore",
+            "GitVersion.yml",
+            ".github/**",
+            "bin/", "obj/", ".git/", ".idea/", ".vs/"
+          ]
         }
       ]
     }
