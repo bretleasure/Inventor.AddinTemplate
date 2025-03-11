@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <NoWarn>$(NoWarn);NU1507</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Inventor.InternalNames" Version="0.4.1" />
+    <PackageVersion Include="Microsoft.Windows.Compatibility" Version="8.0.13" />
+    <PackageVersion Include="stdole" Version="17.12.40391" />
+    <PackageVersion Include="System.Resources.Extensions" Version="9.0.0" />
+  </ItemGroup>
+</Project>
