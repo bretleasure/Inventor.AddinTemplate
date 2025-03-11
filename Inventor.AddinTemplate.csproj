@@ -15,7 +15,6 @@
       <Reference Include="Autodesk.Inventor.Interop">
         <HintPath>lib\Autodesk.Inventor.Interop.dll</HintPath>
       </Reference>
-<!--      <Reference Include="System.Windows.Forms" />-->
     </ItemGroup>
 
     <ItemGroup>
