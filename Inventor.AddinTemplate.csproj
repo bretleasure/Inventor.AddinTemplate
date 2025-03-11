@@ -3,7 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <ImplicitUsings>enable</ImplicitUsings>  
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWindowsForms>true</UseWindowsForms>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -14,7 +15,7 @@
       <Reference Include="Autodesk.Inventor.Interop">
         <HintPath>lib\Autodesk.Inventor.Interop.dll</HintPath>
       </Reference>
-      <Reference Include="System.Windows.Forms" />
+<!--      <Reference Include="System.Windows.Forms" />-->
     </ItemGroup>
 
     <ItemGroup>

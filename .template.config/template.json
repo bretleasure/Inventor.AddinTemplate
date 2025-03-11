@@ -23,6 +23,9 @@
         },
         {
           "choice": "net48"
+        },
+        {
+          "choice": "net8.0-windows"
         }
       ],
       "defaultValue": "net472",

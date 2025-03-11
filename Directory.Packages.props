@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include=".template.config\template.json" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
+        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**" />
         <Content Remove="azure-pipelines.yml" />
         <Content Remove="README.md" />
         <Content Remove=".gitignore" />
