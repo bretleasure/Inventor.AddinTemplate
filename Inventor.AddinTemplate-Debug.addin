@@ -1,0 +1,14 @@
+<Addin Type="Standard">
+  <!--Created for Autodesk Inventor Version 22.0-->
+  <ClassId>{25E7585D-00D9-47C6-8E1B-734A2186383A}</ClassId>
+  <ClientId>{25E7585D-00D9-47C6-8E1B-734A2186383A}</ClientId>
+  <DisplayName>Inventor.AddinTemplate</DisplayName>
+  <Description>Inventor.AddinTemplate Addin</Description>
+  <Assembly>D:\Inventor.AddinTemplate\bin\Debug\net472\Inventor.AddinTemplate.dll</Assembly>
+  <LoadOnStartUp>1</LoadOnStartUp>
+  <UserUnloadable>1</UserUnloadable>
+  <Hidden>0</Hidden>
+  <SupportedSoftwareVersionGreaterThan>19..</SupportedSoftwareVersionGreaterThan>
+  <DataVersion>1</DataVersion>
+  <UserInterfaceVersion>1</UserInterfaceVersion>
+</Addin>

@@ -2,9 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Inventor;
-using Inventor.AddinTemplate.Buttons;
+using Inventor.AddinTemplate.Windows;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Inventor.AddinTemplate
+namespace Inventor.AddinTemplate.Addin
 {
     /// <summary>
     /// This is the primary AddIn Server class that implements the ApplicationAddInServer interface
@@ -16,6 +17,8 @@ namespace Inventor.AddinTemplate
     {
         // The Inventor application instance
         public static Inventor.Application InventorApp;
+
+        public static ServiceProvider Services;
         
         public static Guid AddinGuid = new("25E7585D-00D9-47C6-8E1B-734A2186383A");
         
@@ -38,6 +41,8 @@ namespace Inventor.AddinTemplate
                 // If the addin is loaded for the first time, initialize the UI components
                 if (firstTime)
                 {
+                    SetupDependencyInjection();
+                    
                     InitializeUIComponents();
                 }
             }
@@ -53,15 +58,18 @@ namespace Inventor.AddinTemplate
         /// </summary>
         private void InitializeUIComponents()
         {
-            _buttons = Assembly.GetAssembly(typeof(InventorButton)).GetTypes()
-                .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(InventorButton)))
-                .Select(Activator.CreateInstance)
-                .Cast<InventorButton>()
+            _buttons = Services.GetServices<InventorButton>()
                 .Where(button => button.Enabled)
                 .OrderBy(button => button.SequenceNumber)
                 .ToList();
 
             _buttons.ForEach(b => b.Initialize());
+            
+            var win1 = Services.GetRequiredService<InventorDockableWindow<UserControl1>>();
+            win1.Initialize();
+
+            var win2 = Services.GetRequiredService<InventorDockableWindow<Window1>>();
+            win2.Initialize();
         }
 
         /// <summary>
@@ -117,6 +125,16 @@ namespace Inventor.AddinTemplate
         }
 
         #endregion
+
+        private void SetupDependencyInjection()
+        {
+            var serviceCollection = new ServiceCollection();
+            
+            AddinRegistry.RegisterServices(serviceCollection);
+            
+
+            Services = serviceCollection.BuildServiceProvider();
+        }
 
     }
 }

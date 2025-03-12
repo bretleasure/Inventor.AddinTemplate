@@ -1,8 +1,9 @@
 ﻿using System.Windows.Forms;
 using Inventor;
+using Inventor.AddinTemplate.Addin;
 using Inventor.InternalNames.Ribbon;
 
-namespace Inventor.AddinTemplate.Buttons
+namespace Inventor.AddinTemplate
 {
     internal class DefaultButton : InventorButton
     {
@@ -23,9 +24,9 @@ namespace Inventor.AddinTemplate.Buttons
 
         protected override string GetToolTipText() => "Click the Default Button";
 
-        protected override string GetLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Light.png";
+        protected override string GetLargeIconResourceName() => "Inventor.AddinTemplate.Assets.Default-Light.png";
 
-        protected override string GetDarkThemeLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Dark.png";
+        protected override string GetDarkThemeLargeIconResourceName() => "Inventor.AddinTemplate.Assets.Default-Dark.png";
 
         protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
 

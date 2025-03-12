@@ -5,6 +5,8 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWindowsForms>true</UseWindowsForms>
+        <UseWpf>true</UseWpf>
+        <RootNamespace>Inventor.AddinTemplate</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -19,28 +21,23 @@
 
     <ItemGroup>
       <PackageReference Include="Inventor.InternalNames" Version="0.4.1" />
-      <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="stdole" Version="17.13.40008" />
-      <PackageReference Include="System.Resources.Extensions" Version="9.0.2" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
     </ItemGroup>
 
     <ItemGroup>
       <None Update="Inventor.AddinTemplate.addin">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Inventor.AddinTemplate-Debug.addin">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Buttons\Assets\Default.png" />
-      <EmbeddedResource Include="Buttons\Assets\Default-Light.png" />
-      <None Remove="Buttons\Assets\Default-Dark.png" />
-      <EmbeddedResource Include="Buttons\Assets\Default-Dark.png" />
+      <None Remove="Assets\Default-Light.png" />
+      <EmbeddedResource Include="Assets\Default-Light.png" />
+      <None Remove="Assets\Default-Dark.png" />
+      <EmbeddedResource Include="Assets\Default-Dark.png" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Content Include="**" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.idea\**;**\.vs\**;" />
-    </ItemGroup>
 </Project>
