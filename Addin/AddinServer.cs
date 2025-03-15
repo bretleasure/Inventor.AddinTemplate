@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Inventor;
@@ -35,24 +36,23 @@ namespace Inventor.AddinTemplate.Addin
         {
             InventorApp = addInSiteObject.Application;
             InventorApp.ApplicationEvents.OnApplicationOptionChange += UpdateButtons;
-            
-            
+            InventorApp.ApplicationEvents.OnReady += OnReady;
+        }
 
-            try
+        private void OnReady(EventTimingEnum beforeorafter, NameValueMap context, out HandlingCodeEnum handlingcode)
+        {
+            if (beforeorafter == EventTimingEnum.kAfter)
             {
-                // If the addin is loaded for the first time, initialize the UI components
-                if (firstTime)
-                {
-                    SetupDependencyInjection();
+                SetupDependencyInjection();
                     
-                    InitializeUIComponents();
-                }
+                InitializeUIComponents();
+                
+                handlingcode = HandlingCodeEnum.kEventHandled;
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not load Inventor.AddinTemplate.");
-            }
-
+            
+            
+            handlingcode = HandlingCodeEnum.kEventNotHandled;
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Inventor.AddinTemplate.Addin
 
             _buttons.ForEach(b => b.Initialize());
 
-            _dockableWindows = Services.GetServices<InventorDockableWindow>().ToList();
-            _dockableWindows.ForEach(d => d.Initialize());
+            // _dockableWindows = Services.GetServices<InventorDockableWindow>().ToList();
+            // _dockableWindows.ForEach(d => d.Initialize());
         }
 
         /// <summary>

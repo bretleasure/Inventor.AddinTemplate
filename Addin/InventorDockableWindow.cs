@@ -7,19 +7,32 @@ namespace Inventor.AddinTemplate.Addin
 {
 	public abstract class InventorDockableWindow
 	{
-		public Func<UserControl> GetChildWindowInstance { get; set; }
+		protected abstract string WindowTitle { get; }
+		public abstract bool ShowTitleBar { get; }
+		public abstract int Height { get; }
+		public abstract int Width { get; }
+		protected abstract bool ShowVisibilityCheckbox { get; }
+		public abstract bool DisableCloseButton { get; }
+		public abstract DockingStateEnum DockingState { get; }
+
+		
+
+		
+
+		
+		
 		
 		private UserControl _childWindow;
 		
 		[Injectable]
-		private UserControl ChildWindow
+		public UserControl ChildWindow
 		{
 			get
 			{
-				if (_childWindow == null)
-				{
-					_childWindow = GetChildWindowInstance.Invoke();
-				}
+				// if (_childWindow == null)
+				// {
+				// 	_childWindow = GetChildWindowInstance.Invoke();
+				// }
 
 				return _childWindow;
 			}
@@ -60,26 +73,39 @@ namespace Inventor.AddinTemplate.Addin
 				return _handle;
 			}
 		}
-
-		protected abstract string WindowTitle { get; }
 		
-		private DockableWindow _window;
+		/// <summary>
+		/// The Inventor.DockableWindow object that represents this dockable window.
+		/// </summary>
+		public DockableWindow Window;
 
 		internal void Initialize()
 		{
-			_window = AddinServer.InventorApp.UserInterfaceManager.DockableWindows.Add(Guid.NewGuid().ToString(), 
+			Window = AddinServer.InventorApp.UserInterfaceManager.DockableWindows.Add(Guid.NewGuid().ToString(), 
 				$"Inventor.AddinTemplate_{WindowTitle}", WindowTitle);
-			_window.AddChild(Handle);
+			Window.AddChild(Handle);
+			Window.ShowVisibilityCheckBox = ShowVisibilityCheckbox;
+			Window.Height = Height;
+			Window.Width = Width;
+			Window.DockingState = DockingState;
+			Window.DisableCloseButton = DisableCloseButton;
+			Window.ShowTitleBar = ShowTitleBar;
+			
+			// ChildWindow.Disposed += (sender, args) =>
+			// {
+			// 	Dispose();
+			// };
 		}
-		
+
 		internal void Dispose()
 		{
-			_window.Delete();
+			Window.Delete();
+			_childWindow.Dispose();
 		}
 		
 		internal void Show()
 		{
-			_window.Visible = true;
+			Window.Visible = true;
 		}
 	}
 }

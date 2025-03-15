@@ -21,18 +21,21 @@ namespace Inventor.AddinTemplate.Addin
 				var dockableWindow = ActivatorUtilities.CreateInstance<TDockableWindow>(provider);
 				var childWindow = provider.GetRequiredService<TChildWindow>();
 			
-				var properties = typeof(TChildWindow).GetProperties()
-					.Where(prop => prop.IsDefined(typeof(InjectableAttribute), false));
+				var properties = typeof(TDockableWindow).GetProperties()
+					.Where(prop => prop.IsDefined(typeof(InjectableAttribute), true))
+					.ToList();
 				
 				foreach (var property in properties)
 				{
-					var value = provider.GetRequiredService(property.PropertyType);
-					property.SetValue(childWindow, value);
+					property.SetValue(dockableWindow, childWindow);
 				}
+				
+				dockableWindow.Initialize();
 			
 				return dockableWindow;
 			
 			});
+			
 			return services;
 		}
 	}

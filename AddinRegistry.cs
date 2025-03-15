@@ -11,7 +11,7 @@ namespace Inventor.AddinTemplate
 		public static void RegisterServices(IServiceCollection services)
 		{
 			services.AddRibbonButton<DefaultButton>()
-				.AddDockableWindow<DefaultDockableWindow, UserControl1>();
+				.AddDockableWindow<DefaultDockableWindow, DefaultUserControl>();
 
 		}
 	}
