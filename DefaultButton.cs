@@ -7,14 +7,21 @@ namespace Inventor.AddinTemplate
 {
     internal class DefaultButton : InventorButton
     {
+        private readonly DefaultDockableWindow _dockableWindow;
+        
+        public DefaultButton(DefaultDockableWindow dockableWindow)
+        {
+            _dockableWindow = dockableWindow;
+        }
         protected override void Execute(NameValueMap context, Inventor.Application inventor)
         {
-            MessageBox.Show($"Current document name: {inventor.ActiveDocument.DisplayName}");
+            // MessageBox.Show($"Current document name: {inventor.ActiveDocument.DisplayName}");
+            _dockableWindow.Show();
         }
 
-        protected override string GetRibbonName() => InventorRibbons.Drawing;
+        protected override string GetRibbonName() => InventorRibbons.Assembly;
 
-        protected override string GetRibbonTabName() => DrawingRibbonTabs.PlaceViews;
+        protected override string GetRibbonTabName() => "AddinTemplate";
 
         protected override string GetRibbonPanelName() => "Inventor.AddinTemplate";
 

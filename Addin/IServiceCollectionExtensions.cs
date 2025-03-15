@@ -10,16 +10,29 @@ namespace Inventor.AddinTemplate.Addin
 			services.AddSingleton<InventorButton, TButton>();
 			return services;
 		}
-		
-		internal static IServiceCollection AddDockableUserControl<TChildWindow>(this IServiceCollection services, string windowTitle) where TChildWindow : UserControl, IDockableWindowChild
+
+		internal static IServiceCollection AddDockableWindow<TDockableWindow, TChildWindow>(this IServiceCollection services)
+			where TDockableWindow : InventorDockableWindow
+			where TChildWindow : UserControl
 		{
-			services.AddSingleton(new InventorDockableWindow<TChildWindow>(windowTitle));
-			return services;
-		}
-		
-		internal static IServiceCollection AddDockableWpf<TChildWindow>(this IServiceCollection services, string windowTitle) where TChildWindow : Window, IDockableWindowChild
-		{
-			services.AddSingleton(new InventorDockableWindow<TChildWindow>(windowTitle));
+			services.AddTransient<TChildWindow>();
+			services.AddTransient<TDockableWindow>(provider =>
+			{
+				var dockableWindow = ActivatorUtilities.CreateInstance<TDockableWindow>(provider);
+				var childWindow = provider.GetRequiredService<TChildWindow>();
+			
+				var properties = typeof(TChildWindow).GetProperties()
+					.Where(prop => prop.IsDefined(typeof(InjectableAttribute), false));
+				
+				foreach (var property in properties)
+				{
+					var value = provider.GetRequiredService(property.PropertyType);
+					property.SetValue(childWindow, value);
+				}
+			
+				return dockableWindow;
+			
+			});
 			return services;
 		}
 	}

@@ -1,5 +1,4 @@
 ﻿using Inventor.AddinTemplate.Addin;
-using Inventor.AddinTemplate.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inventor.AddinTemplate
@@ -12,9 +11,8 @@ namespace Inventor.AddinTemplate
 		public static void RegisterServices(IServiceCollection services)
 		{
 			services.AddRibbonButton<DefaultButton>()
-				.AddDockableUserControl<UserControl1>("My Dockable Window")
-				.AddDockableWpf<Window1>("My Dockable WPF Window");
-			
+				.AddDockableWindow<DefaultDockableWindow, UserControl1>();
+
 		}
 	}
 }

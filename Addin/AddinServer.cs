@@ -2,7 +2,6 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Inventor;
-using Inventor.AddinTemplate.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inventor.AddinTemplate.Addin
@@ -23,6 +22,7 @@ namespace Inventor.AddinTemplate.Addin
         public static Guid AddinGuid = new("25E7585D-00D9-47C6-8E1B-734A2186383A");
         
         List<InventorButton> _buttons;
+        List<InventorDockableWindow> _dockableWindows;
 
         #region ApplicationAddInServer Members
 
@@ -35,6 +35,8 @@ namespace Inventor.AddinTemplate.Addin
         {
             InventorApp = addInSiteObject.Application;
             InventorApp.ApplicationEvents.OnApplicationOptionChange += UpdateButtons;
+            
+            
 
             try
             {
@@ -64,12 +66,9 @@ namespace Inventor.AddinTemplate.Addin
                 .ToList();
 
             _buttons.ForEach(b => b.Initialize());
-            
-            var win1 = Services.GetRequiredService<InventorDockableWindow<UserControl1>>();
-            win1.Initialize();
 
-            var win2 = Services.GetRequiredService<InventorDockableWindow<Window1>>();
-            win2.Initialize();
+            _dockableWindows = Services.GetServices<InventorDockableWindow>().ToList();
+            _dockableWindows.ForEach(d => d.Initialize());
         }
 
         /// <summary>
@@ -97,6 +96,8 @@ namespace Inventor.AddinTemplate.Addin
         public void Deactivate()
         {
             InventorApp = null;
+            _buttons.ForEach(b => b.Dispose());
+            _dockableWindows.ForEach(d => ((dynamic)d).Dispose());
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -129,7 +130,7 @@ namespace Inventor.AddinTemplate.Addin
         private void SetupDependencyInjection()
         {
             var serviceCollection = new ServiceCollection();
-            
+            serviceCollection.AddSingleton<Inventor.Application>(InventorApp);
             AddinRegistry.RegisterServices(serviceCollection);
             
 

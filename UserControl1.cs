@@ -2,13 +2,16 @@
 
 namespace Inventor.AddinTemplate
 {
-	public partial class UserControl1 : UserControl, IDockableWindowChild
+	public partial class UserControl1 : UserControl
 	{
+		private readonly Application _inventor;
+
 		public UserControl1()
 		{
+			// _inventor = inventor;
 			InitializeComponent();
-		}
 
-		public Application InventorApp { get; set; }
+			// label1.Text = inventor.ActiveDocument.DisplayName;
+		}
 	}
 }

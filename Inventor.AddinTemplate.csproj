@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net472</TargetFramework>
+        <TargetFramework>net8.0-windows</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWindowsForms>true</UseWindowsForms>
@@ -17,6 +17,7 @@
       <Reference Include="Autodesk.Inventor.Interop">
         <HintPath>lib\Autodesk.Inventor.Interop.dll</HintPath>
       </Reference>
+      <Reference Include="Microsoft.CSharp" />
     </ItemGroup>
 
     <ItemGroup>
