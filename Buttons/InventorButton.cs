@@ -113,6 +113,11 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_cachedRibbonTab == null)
                 {
+                    if (string.IsNullOrEmpty(RibbonTabName))
+                    {
+                        throw new Exception($"Unable to find or create ribbon tab. The name specified in {this.GetType().Name} is null or empty.");
+                    }
+
                     _cachedRibbonTab = Ribbon.RibbonTabs
                         .Cast<RibbonTab>()
                         .FirstOrDefault(t => t.InternalName == RibbonTabName);
@@ -134,6 +139,11 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_cachedRibbonPanel == null)
                 {
+                    if (string.IsNullOrEmpty(RibbonTabName))
+                    {
+                        throw new Exception($"Unable to find or create ribbon panel. The name specified in {this.GetType().Name} is null or empty.");
+                    }
+
                     _cachedRibbonPanel = RibbonTab.RibbonPanels
                         .Cast<RibbonPanel>()
                         .FirstOrDefault(p => p.InternalName == RibbonPanelName);
