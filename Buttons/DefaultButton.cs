@@ -11,24 +11,24 @@ namespace Inventor.AddinTemplate.Buttons
             MessageBox.Show($"Current document name: {inventor.ActiveDocument.DisplayName}");
         }
 
-        protected override string GetRibbonName() => InventorRibbons.Drawing;
+        protected override string RibbonName => InventorRibbons.Drawing;
 
-        protected override string GetRibbonTabName() => DrawingRibbonTabs.PlaceViews;
+        protected override string RibbonTabName => DrawingRibbonTabs.PlaceViews;
 
-        protected override string GetRibbonPanelName() => "Inventor.AddinTemplate";
+        protected override string RibbonPanelName => "Inventor.AddinTemplate";
 
-        protected override string GetButtonName() => "DefaultButton";
+        protected override string Label => "DefaultButton";
 
-        protected override string GetDescriptionText() => "Default Button Description";
+        protected override string Description => "Default Button Description";
 
-        protected override string GetToolTipText() => "Click the Default Button";
+        protected override string Tooltip => "Click the Default Button";
 
-        protected override string GetLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Light.png";
+        protected override string LargeIconResourceName => "Inventor.AddinTemplate.Buttons.Assets.Default-Light.png";
 
-        protected override string GetDarkThemeLargeIconResourceName() => "Inventor.AddinTemplate.Buttons.Assets.Default-Dark.png";
+        protected override string DarkThemeLargeIconResourceName => "Inventor.AddinTemplate.Buttons.Assets.Default-Dark.png";
 
-        protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
+        protected override string SmallIconResourceName => LargeIconResourceName;
 
-        protected override string GetDarkThemeSmallIconResourceName() => GetDarkThemeLargeIconResourceName();
+        protected override string DarkThemeSmallIconResourceName => DarkThemeLargeIconResourceName;
     }
 }
