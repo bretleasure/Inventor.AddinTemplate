@@ -19,7 +19,7 @@ namespace Inventor.AddinTemplate
 
 		private void btn_Close_Click(object sender, EventArgs e)
 		{
-			
+			this.CloseWindow();
 		}
 	}
 }
