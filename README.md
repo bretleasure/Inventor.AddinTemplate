@@ -23,7 +23,7 @@ The goal of this template is to make creating an Inventor addin as easy as possi
    
 2. [Deploying Your Addin](#deploying-your-addin)
    
-3. [Referencing the Inventor Interop](https://github.com/bretleasure/Inventor.AddinTemplate/wiki/Inventor-Interop)
+3. [Referencing the Inventor Interop](#referencing-the-inventor-interop)
 
 4. [Installing and Using this Template](#installing-and-using-this-template)
 
