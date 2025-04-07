@@ -19,17 +19,17 @@ The goal of this template is to make creating an Inventor addin as easy as possi
 
 ## Getting Started
    
-:one: [Creating Buttons](#creating-buttons)
+1️⃣ [Creating Buttons](#1️⃣-creating-buttons)
    
-:two: [Deploying Your Addin](#deploying-your-addin)
+2️⃣ [Deploying Your Addin](#2️⃣-deploying-your-addin)
    
-:three: [Referencing the Inventor Interop](#referencing-the-inventor-interop)
+3️⃣ [Referencing the Inventor Interop](#3️⃣-referencing-the-inventor-interop)
 
-:four: [Installing and Using this Template](#installing-and-using-this-template)
+4️⃣ [Installing and Using this Template](#4️⃣-installing-and-using-this-template)
 
 ---
 
-## :one: Creating Buttons
+## 1️⃣ Creating Buttons
 
 All buttons need to inherit the `InventorButton` class, which contains abstract methods for all of the required information for creating a button. There are also some optional properties and methods that can be used.
 
@@ -110,7 +110,7 @@ internal class DefaultButton : InventorButton
 
 ---
 
-## :two: Deploying Your Addin
+## 2️⃣ Deploying Your Addin
 
 Deploying your addin is fairly simple. Just copy the build contents of your project and put them in the correct folder so that Inventor can find them.
 
@@ -145,7 +145,7 @@ The only catch is there are multiple locations that Inventor looks for addins to
 
 ---
 
-## :three: Referencing the Inventor Interop
+## 3️⃣ Referencing the Inventor Interop
 
 Inventor Addins must reference the Inventer Interop library (`Autodesk.Inventor.Interop.dll`) in order to access Inventor's API. This template includes a copy of the Inventor 2023 Interop in the `lib` folder. If needed, you can change the reference to a different version. The `Autodesk.Inventor.Interop.dll` can be found in the following location:
 
@@ -161,7 +161,7 @@ C:\Program Files\Autodesk\Inventor 20xx\Bin\Public Assemblies
 
 ---
 
-## :four: Installing and Using this Template
+## 4️⃣ Installing and Using this Template
 
 The easiest way to install this template is by using the [dotnet CLI](https://dotnet.microsoft.com/en-us/download/dotnet). 
 
