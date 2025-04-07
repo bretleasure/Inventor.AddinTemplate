@@ -133,6 +133,9 @@ The only catch is there are multiple locations that Inventor looks for addins to
 
 ### Load for a Specific User and all Versions of Inventor
 
+> [!IMPORTANT]
+> This is the recommended installation location by Autodesk
+
 ```
 %AppData%\Autodesk\ApplicationPlugins
 ```
