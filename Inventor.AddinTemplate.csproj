@@ -24,7 +24,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="stdole" Version="17.13.40008" />
-      <PackageReference Include="System.Resources.Extensions" Version="9.0.2" />
+      <PackageReference Include="System.Resources.Extensions" Version="9.0.3" />
     </ItemGroup>
 
     <ItemGroup>
