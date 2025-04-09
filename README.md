@@ -11,7 +11,7 @@
 
 </div>
 
-# Inventor Addin Template
+## Inventor Add-in Template
 
 The goal of this template is to make creating an Inventor addin as easy as
 possible. All that is required is to create the buttons and write the code that
