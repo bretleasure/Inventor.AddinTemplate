@@ -16,13 +16,14 @@
     "framework": {
       "type": "parameter",
       "datatype": "choice",
-      "description": "Select the target .NET framework",
-      "defaultValue": "net472",
+      "description": "Select the target .NET framework",      
       "choices": [
         { "choice": "net472", "description": ".NETFramework 4.7.2" },
         { "choice": "net48", "description": ".NETFramework 4.8" },
         { "choice": "net8.0-windows", "description": ".NET 8" }
-      ]
+      ],
+      "defaultValue": "net472",
+      "replaces": "net472"
     },
     "Inventor Version": {
       "type": "parameter",
@@ -50,7 +51,8 @@
             ".gitignore",
             "GitVersion.yml",
             ".github/**",
-            "bin/", "obj/", ".git/", ".idea/", ".vs/"
+            "Assets/**", 
+            "bin/**", "obj/**", ".git/**", ".idea/**", ".vs/**"
           ]
         }
       ]
