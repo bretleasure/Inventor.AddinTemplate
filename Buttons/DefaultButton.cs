@@ -30,20 +30,5 @@ namespace Inventor.AddinTemplate.Buttons
         protected override string SmallIconResourceName => LargeIconResourceName;
 
         protected override string DarkThemeSmallIconResourceName => DarkThemeLargeIconResourceName;
-
-        protected override void ConfigureProgressiveToolTip(ProgressiveToolTip toolTip)
-        {
-            toolTip.Title = "Default Button";
-            toolTip.Description = "Default Button Description";
-            toolTip.ExpandedDescription = "This is the expanded description of the default button.";
-            toolTip.Image = null;
-            toolTip.IsProgressive = false;
-            toolTip.Video = null;
-        }
-
-        protected override void OnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
-        {
-            
-        }
     }
 }

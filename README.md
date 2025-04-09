@@ -84,14 +84,16 @@ Button icons need to be .PNG files and be added to the project as embedded
 resources. Large icons should be 32px by 32px and small icons should be 16px by
 16px.
 
-### Optional Properties
+### Optional Properties/Methods
 
 | Name           | Default Value | Description                                                                                                                                                   |
-| -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| UseLargeIcon   | true          | Whether the button will be displayed with a Large Icon                                                                                                        |
-| ShowText       | true          | Whether the button's label will be displayed                                                                                                                  |
-| Enabled        | true          | Whether the button will be displayed                                                                                                                          |
-| SequenceNumber | 0             | Used to control the order that the buttons are added (if creating multiple buttons). Buttons are ordered lowest to highest from Left to Right / Top to Bottom |
+| --------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UseLargeIcon                                                          | true          | Whether the button will be displayed with a Large Icon                                                                                                        |
+| ShowText                                                              | true          | Whether the button's label will be displayed                                                                                                                  |
+| Enabled                                                               | true          | Whether the button will be displayed                                                                                                                          |
+| SequenceNumber                                                        | 0             | Used to control the order that the buttons are added (if creating multiple buttons). Buttons are ordered lowest to highest from Left to Right / Top to Bottom |
+| ConfigureProgressiveToolTip(`ProgressiveToolTip` toolTip)             |               | Allows configuring a progressive tooltip. The `Label` and `Tooltip` properties will be ignored if this is used. Refer to Autodesk's [ProgressiveToolTip Documentation](https://help.autodesk.com/view/INVNTOR/2025/ENU/?guid=GUID-ProgressiveToolTip) for the available properties for `ProgressiveToolTip`|
+| OnHelp(`NameValueMap` context, out `HandlingCodeEnum` handlingcode)   |               | **Only Available if using a Progressive Tool Tip** Allows overriding what happens when a user selects F1 while the progressive tool tip is being displayed. Refer to Autodesk's [ButtonDefinition.OnHelp Event Documentation](https://help.autodesk.com/view/INVNTOR/2025/ENU/?guid=ButtonDefinition_OnHelp)|
 
 ### Example
 
@@ -102,7 +104,7 @@ using Inventor.InternalNames.Ribbon;
 
 namespace Inventor.AddinTemplate.Buttons
 {
-    internal class DefaultButton : InventorButton
+    public class DefaultButton : InventorButton
     {
         protected override void Execute(NameValueMap context, Inventor.Application inventor)
         {
