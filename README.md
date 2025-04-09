@@ -93,7 +93,7 @@ resources. Large icons should be 32px by 32px and small icons should be 16px by
 | Enabled                                                               | true          | Whether the button will be displayed                                                                                                                          |
 | SequenceNumber                                                        | 0             | Used to control the order that the buttons are added (if creating multiple buttons). Buttons are ordered lowest to highest from Left to Right / Top to Bottom |
 | ConfigureProgressiveToolTip(`ProgressiveToolTip` toolTip)             |               | Allows configuring a progressive tooltip. The `Label` and `Tooltip` properties will be ignored if this is used. Refer to Autodesk's [ProgressiveToolTip Documentation](https://help.autodesk.com/view/INVNTOR/2025/ENU/?guid=GUID-ProgressiveToolTip) for the available properties for `ProgressiveToolTip`|
-| OnHelp(`NameValueMap` context, out `HandlingCodeEnum` handlingcode)   |               | **Only Available if using a Progressive Tool Tip** Allows overriding what happens when a user selects F1 while the progressive tool tip is being displayed. Refer to Autodesk's [ButtonDefinition.OnHelp Event Documentation](https://help.autodesk.com/view/INVNTOR/2025/ENU/?guid=ButtonDefinition_OnHelp)|
+| OnHelp(`NameValueMap` context, out `HandlingCodeEnum` handlingcode)   |               | **Only Available if using a Progressive Tool Tip.** Allows overriding what happens when a user selects F1 while the progressive tool tip is being displayed. Refer to Autodesk's [ButtonDefinition.OnHelp Event Documentation](https://help.autodesk.com/view/INVNTOR/2025/ENU/?guid=ButtonDefinition_OnHelp)|
 
 ### Example
 
