@@ -55,27 +55,27 @@ namespace Inventor.AddinTemplate.Buttons
 
         /// <summary>
         /// The name of the embedded resource that should be used for the icon
-        /// when the button is large.
+        /// when the button is large. Large icons should be 32px by 32px.
         /// </summary>
         protected abstract string LargeIconResourceName { get; }
 
         /// <summary>
         /// The name of the embedded resource that should be used for the icon
-        /// when the buttion is large and the application is using the dark
-        /// UI theme.
+        /// when the button is large and the application is using the dark
+        /// UI theme. Large icons should be 32px by 32px.
         /// </summary>
         protected abstract string DarkThemeLargeIconResourceName { get; }
 
         /// <summary>
         /// The name of the embedded resource that should be used for the icon
-        /// when the buttion is small.
+        /// when the button is small. Small icons should be 16px by 16px.
         /// </summary>
         protected abstract string SmallIconResourceName { get; }
 
         /// <summary>
-        /// the name of the embedded resource that should be use for the icon
+        /// The name of the embedded resource that should be use for the icon
         /// when the button is small and the application is using the light
-        /// UI theme.
+        /// UI theme. Small icons should be 16px by 16px.
         /// </summary>
         protected abstract string DarkThemeSmallIconResourceName { get; }
 
