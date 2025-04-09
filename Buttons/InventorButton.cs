@@ -6,10 +6,8 @@ using IPictureDisp = Inventor.IPictureDisp;
 
 namespace Inventor.AddinTemplate.Buttons
 {
-    internal abstract class InventorButton
+    public abstract class InventorButton
     {
-        private void OnExecute(NameValueMap context) => Execute(context, AddinServer.InventorApp);
-
         protected abstract void Execute(NameValueMap context, Inventor.Application inventor);
         protected abstract string GetRibbonName();
 
@@ -53,7 +51,13 @@ namespace Inventor.AddinTemplate.Buttons
         protected virtual bool UseLargeIcon => true;
         protected virtual bool ShowText => true;
         internal virtual int SequenceNumber => 0;
-        internal virtual ProgressiveToolTipOptions ProgressiveToolTipOptions => null;
+
+        protected virtual void ConfigureProgressiveToolTip(ProgressiveToolTip toolTip) { }
+        protected virtual void OnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
+        {
+            handlingcode = HandlingCodeEnum.kEventNotHandled;
+        }
+        
         
         private bool AddToRibbon => true;
 
@@ -131,36 +135,13 @@ namespace Inventor.AddinTemplate.Buttons
                         CommandType, null, GetDescriptionText(), GetToolTipText(), SmallIcon, LargeIcon);
                     
                     _buttonDefinition.Enabled = true;
-                    _buttonDefinition.OnExecute += OnExecute;
-
-                    if (ProgressiveToolTipOptions != null)
-                    {
-                        _buttonDefinition.ProgressiveToolTip.Title = ProgressiveToolTipOptions.Title;
-                        _buttonDefinition.ProgressiveToolTip.Description = ProgressiveToolTipOptions.Description;
-                        _buttonDefinition.ProgressiveToolTip.ExpandedDescription = ProgressiveToolTipOptions.ExpandedDescription;
-
-                        if (ProgressiveToolTipOptions.Image != null)
-                        {
-                            _buttonDefinition.ProgressiveToolTip.Image = ProgressiveToolTipOptions.Image;
-                        }
-                        
-                        if (ProgressiveToolTipOptions.Video != null)
-                        {
-                            _buttonDefinition.ProgressiveToolTip.Video = ProgressiveToolTipOptions.Video;
-                        }
-                        _buttonDefinition.ProgressiveToolTip.IsProgressive = ProgressiveToolTipOptions.IsProgressive;
-                        
-                        _buttonDefinition.OnHelp += ButtonDefinitionOnOnHelp;
-                    }
+                    _buttonDefinition.OnExecute += (NameValueMap context) => Execute(context, AddinServer.InventorApp);
+                    _buttonDefinition.OnHelp += (NameValueMap context, out HandlingCodeEnum handlingCode) => OnHelp(context, out handlingCode);
+                    this.ConfigureProgressiveToolTip(_buttonDefinition.ProgressiveToolTip);
                 }
                 
                 return _buttonDefinition;
             }
-        }
-
-        private void ButtonDefinitionOnOnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
-        {
-            throw new NotImplementedException();
         }
 
         private CommandControl _button;

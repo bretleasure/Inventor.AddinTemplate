@@ -4,7 +4,7 @@ using Inventor.InternalNames.Ribbon;
 
 namespace Inventor.AddinTemplate.Buttons
 {
-    internal class DefaultButton : InventorButton
+    public class DefaultButton : InventorButton
     {
         protected override void Execute(NameValueMap context, Inventor.Application inventor)
         {
@@ -30,14 +30,20 @@ namespace Inventor.AddinTemplate.Buttons
         protected override string GetSmallIconResourceName() => GetLargeIconResourceName();
 
         protected override string GetDarkThemeSmallIconResourceName() => GetDarkThemeLargeIconResourceName();
-        internal override ProgressiveToolTipOptions ProgressiveToolTipOptions => new ProgressiveToolTipOptions
+
+        protected override void ConfigureProgressiveToolTip(ProgressiveToolTip toolTip)
         {
-            Description = "Default Button Description",
-            ExpandedDescription = "This is the expanded description of the default button.",
-            Image = null,
-            IsProgressive = false,
-            Title = "Default Button",
-            Video = null
-        };
+            toolTip.Title = "Default Button";
+            toolTip.Description = "Default Button Description";
+            toolTip.ExpandedDescription = "This is the expanded description of the default button.";
+            toolTip.Image = null;
+            toolTip.IsProgressive = false;
+            toolTip.Video = null;
+        }
+
+        protected override void OnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
+        {
+            
+        }
     }
 }
