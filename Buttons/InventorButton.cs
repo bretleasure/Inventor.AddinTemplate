@@ -98,6 +98,11 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_ribbon == null)
                 {
+                    if (string.IsNullOrWhiteSpace(RibbonName))
+                    {
+                        throw new Exception($"Unable to find or create ribbon. The name specified in {this.GetType().Name} is null or empty.");
+                    }
+                    
                     _ribbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
                         .Cast<Ribbon>()
                         .FirstOrDefault(r => r.InternalName == RibbonName);
@@ -145,7 +150,7 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_ribbonPanel == null)
                 {
-                    if (string.IsNullOrEmpty(RibbonTabName))
+                    if (string.IsNullOrEmpty(RibbonPanelName))
                     {
                         throw new Exception($"Unable to find or create ribbon panel. The name specified in {this.GetType().Name} is null or empty.");
                     }

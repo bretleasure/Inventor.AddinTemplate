@@ -43,7 +43,7 @@ namespace Inventor.AddinTemplate
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not load Inventor.AddinTemplate.");
+                MessageBox.Show($"Could not load Inventor.AddinTemplate.\n\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
