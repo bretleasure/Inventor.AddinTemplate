@@ -11,44 +11,74 @@ namespace Inventor.AddinTemplate.Buttons
         private void OnExecute(NameValueMap context) => Execute(context, AddinServer.InventorApp);
 
         protected abstract void Execute(NameValueMap context, Inventor.Application inventor);
-        protected abstract string GetRibbonName();
 
         /// <summary>
-        /// Name of the ribbon tab where the button will be placed. If the tab does not exist, it will be created.
+        /// Name of the ribbon.
         /// </summary>
-        /// <returns></returns>
-        protected abstract string GetRibbonTabName();
+        protected abstract string RibbonName { get; }
 
         /// <summary>
-        /// Name of the ribbon panel where the button will be placed. If the panel does not exist, it will be created.
+        /// Name of the ribbon tab where the button will be placed. If the tab
+        /// does not exist, it will be created.
         /// </summary>
-        /// <returns></returns>
-        protected abstract string GetRibbonPanelName();
+        protected abstract string RibbonTabName { get; }
 
         /// <summary>
-        /// Name of the button. This is the name that will be displayed in the UI.
+        /// Name of the ribbon panel where the button will be placed. If the
+        /// panel does not exist, it will be created.
         /// </summary>
-        /// <returns></returns>
-        protected abstract string GetButtonName();
+        protected abstract string RibbonPanelName { get; }
 
         /// <summary>
-        /// Internal name of the button. This is the name that will be used to identify the button in the code. By default, it is a random GUID.
+        /// Name of the button. This is the name that will be displayed in the
+        /// UI.
         /// </summary>
-        /// <returns></returns>
-        protected virtual string GetInternalName() => string.Concat(AddinServer.AddinGuid.ToString(), "-",GetButtonName());
-
-        protected abstract string GetDescriptionText();
+        protected abstract string Label { get; }
 
         /// <summary>
-        /// Tool tip text that will be displayed when the user hovers over the button.
+        /// Internal name of the button. This is the name that will be used to
+        /// identify the button in the code. By default, it is the GUID of the
+        /// add-in following by the button's label.
         /// </summary>
-        /// <returns></returns>
-        protected abstract string GetToolTipText();
+        protected virtual string InternalName => string.Concat(AddinServer.AddinGuid.ToString(), "-", Label);
 
-        protected abstract string GetLargeIconResourceName();
-        protected abstract string GetDarkThemeLargeIconResourceName();
-        protected abstract string GetSmallIconResourceName();
-        protected abstract string GetDarkThemeSmallIconResourceName();
+        /// <summary>
+        /// Description
+        /// </summary>
+        protected abstract string Description { get; }
+
+        /// <summary>
+        /// The tooltip text that should be displayed when the user hovers over
+        /// the button.
+        /// </summary>
+        protected abstract string Tooltip { get; }
+
+        /// <summary>
+        /// The name of the embedded resource that should be used for the icon
+        /// when the button is large. Large icons should be 32px by 32px.
+        /// </summary>
+        protected abstract string LargeIconResourceName { get; }
+
+        /// <summary>
+        /// The name of the embedded resource that should be used for the icon
+        /// when the button is large and the application is using the dark
+        /// UI theme. Large icons should be 32px by 32px.
+        /// </summary>
+        protected abstract string DarkThemeLargeIconResourceName { get; }
+
+        /// <summary>
+        /// The name of the embedded resource that should be used for the icon
+        /// when the button is small. Small icons should be 16px by 16px.
+        /// </summary>
+        protected abstract string SmallIconResourceName { get; }
+
+        /// <summary>
+        /// The name of the embedded resource that should be use for the icon
+        /// when the button is small and the application is using the light
+        /// UI theme. Small icons should be 16px by 16px.
+        /// </summary>
+        protected abstract string DarkThemeSmallIconResourceName { get; }
+
         protected virtual CommandTypesEnum CommandType => CommandTypesEnum.kEditMaskCmdType;
         protected virtual bool UseLargeIcon => true;
         protected virtual bool ShowText => true;
@@ -64,11 +94,11 @@ namespace Inventor.AddinTemplate.Buttons
                 {
                     _cachedRibbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
                         .Cast<Ribbon>()
-                        .FirstOrDefault(r => r.InternalName == GetRibbonName());
+                        .FirstOrDefault(r => r.InternalName == RibbonName);
                     
                     if (_cachedRibbon == null)
                     {
-                        throw new Exception($"Ribbon {GetRibbonName()} not found");
+                        throw new Exception($"Ribbon {RibbonName} not found");
                     }
                 }
 
@@ -83,13 +113,18 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_cachedRibbonTab == null)
                 {
+                    if (string.IsNullOrEmpty(RibbonTabName))
+                    {
+                        throw new Exception($"Unable to find or create ribbon tab. The name specified in {this.GetType().Name} is null or empty.");
+                    }
+
                     _cachedRibbonTab = Ribbon.RibbonTabs
                         .Cast<RibbonTab>()
-                        .FirstOrDefault(t => t.InternalName == GetRibbonTabName());
+                        .FirstOrDefault(t => t.InternalName == RibbonTabName);
                     
                     if (_cachedRibbonTab == null)
                     {
-                        _cachedRibbonTab = Ribbon.RibbonTabs.Add(GetRibbonTabName(), GetRibbonTabName(), Guid.NewGuid().ToString());
+                        _cachedRibbonTab = Ribbon.RibbonTabs.Add(RibbonTabName, RibbonTabName, Guid.NewGuid().ToString());
                     }
                 }
 
@@ -104,13 +139,18 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_cachedRibbonPanel == null)
                 {
+                    if (string.IsNullOrEmpty(RibbonTabName))
+                    {
+                        throw new Exception($"Unable to find or create ribbon panel. The name specified in {this.GetType().Name} is null or empty.");
+                    }
+
                     _cachedRibbonPanel = RibbonTab.RibbonPanels
                         .Cast<RibbonPanel>()
-                        .FirstOrDefault(p => p.InternalName == GetRibbonPanelName());
+                        .FirstOrDefault(p => p.InternalName == RibbonPanelName);
                     
                     if (_cachedRibbonPanel == null)
                     {
-                        _cachedRibbonPanel = RibbonTab.RibbonPanels.Add(GetRibbonPanelName(), GetRibbonPanelName(), Guid.NewGuid().ToString());
+                        _cachedRibbonPanel = RibbonTab.RibbonPanels.Add(RibbonPanelName, RibbonPanelName, Guid.NewGuid().ToString());
                     }
                 }
 
@@ -125,8 +165,8 @@ namespace Inventor.AddinTemplate.Buttons
             {
                 if (_buttonDefinition == null)
                 {
-                    _buttonDefinition = AddinServer.InventorApp.CommandManager.ControlDefinitions.AddButtonDefinition(GetButtonName(), GetInternalName(),
-                        CommandType, null, GetDescriptionText(), GetToolTipText(), SmallIcon, LargeIcon);
+                    _buttonDefinition = AddinServer.InventorApp.CommandManager.ControlDefinitions.AddButtonDefinition(Label, InternalName,
+                        CommandType, null, Description, Tooltip, SmallIcon, LargeIcon);
                     
                     _buttonDefinition.Enabled = true;
                     _buttonDefinition.OnExecute += OnExecute;
@@ -165,10 +205,10 @@ namespace Inventor.AddinTemplate.Buttons
             _button.Delete();
         }
 
-        private IPictureDisp LightThemeLargeIcon => CreateIcon(GetLargeIconResourceName());
-        private IPictureDisp DarkThemeLargeIcon => CreateIcon(GetDarkThemeLargeIconResourceName());
-        private IPictureDisp LightThemeSmallIcon => CreateIcon(GetSmallIconResourceName());
-        private IPictureDisp DarkThemeSmallIcon => CreateIcon(GetDarkThemeSmallIconResourceName());
+        private IPictureDisp LightThemeLargeIcon => CreateIcon(LargeIconResourceName);
+        private IPictureDisp DarkThemeLargeIcon => CreateIcon(DarkThemeLargeIconResourceName);
+        private IPictureDisp LightThemeSmallIcon => CreateIcon(SmallIconResourceName);
+        private IPictureDisp DarkThemeSmallIcon => CreateIcon(DarkThemeSmallIconResourceName);
 
         private IPictureDisp LargeIcon
         {
