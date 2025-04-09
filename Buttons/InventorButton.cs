@@ -6,10 +6,8 @@ using IPictureDisp = Inventor.IPictureDisp;
 
 namespace Inventor.AddinTemplate.Buttons
 {
-    internal abstract class InventorButton
+    public abstract class InventorButton
     {
-        private void OnExecute(NameValueMap context) => Execute(context, AddinServer.InventorApp);
-
         protected abstract void Execute(NameValueMap context, Inventor.Application inventor);
 
         /// <summary>
@@ -83,78 +81,86 @@ namespace Inventor.AddinTemplate.Buttons
         protected virtual bool UseLargeIcon => true;
         protected virtual bool ShowText => true;
         internal virtual int SequenceNumber => 0;
+
+        protected virtual void ConfigureProgressiveToolTip(ProgressiveToolTip toolTip) { }
+        protected virtual void OnHelp(NameValueMap context, out HandlingCodeEnum handlingcode)
+        {
+            handlingcode = HandlingCodeEnum.kEventNotHandled;
+        }
+        
+        
         private bool AddToRibbon => true;
 
-        private Ribbon _cachedRibbon;
+        private Ribbon _ribbon;
         private Ribbon Ribbon
         {
             get
             {
-                if (_cachedRibbon == null)
+                if (_ribbon == null)
                 {
-                    _cachedRibbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
+                    _ribbon = AddinServer.InventorApp.UserInterfaceManager.Ribbons
                         .Cast<Ribbon>()
                         .FirstOrDefault(r => r.InternalName == RibbonName);
                     
-                    if (_cachedRibbon == null)
+                    if (_ribbon == null)
                     {
                         throw new Exception($"Ribbon {RibbonName} not found");
                     }
                 }
 
-                return _cachedRibbon;
+                return _ribbon;
             }
         }
 
-        private RibbonTab _cachedRibbonTab;
+        private RibbonTab _ribbonTab;
         private RibbonTab RibbonTab
         {
             get
             {
-                if (_cachedRibbonTab == null)
+                if (_ribbonTab == null)
                 {
                     if (string.IsNullOrEmpty(RibbonTabName))
                     {
                         throw new Exception($"Unable to find or create ribbon tab. The name specified in {this.GetType().Name} is null or empty.");
                     }
 
-                    _cachedRibbonTab = Ribbon.RibbonTabs
+                    _ribbonTab = Ribbon.RibbonTabs
                         .Cast<RibbonTab>()
                         .FirstOrDefault(t => t.InternalName == RibbonTabName);
                     
-                    if (_cachedRibbonTab == null)
+                    if (_ribbonTab == null)
                     {
-                        _cachedRibbonTab = Ribbon.RibbonTabs.Add(RibbonTabName, RibbonTabName, Guid.NewGuid().ToString());
+                        _ribbonTab = Ribbon.RibbonTabs.Add(RibbonTabName, RibbonTabName, Guid.NewGuid().ToString());
                     }
                 }
 
-                return _cachedRibbonTab;
+                return _ribbonTab;
             }
         }
 
-        private RibbonPanel _cachedRibbonPanel;
+        private RibbonPanel _ribbonPanel;
         private RibbonPanel RibbonPanel
         {
             get
             {
-                if (_cachedRibbonPanel == null)
+                if (_ribbonPanel == null)
                 {
                     if (string.IsNullOrEmpty(RibbonTabName))
                     {
                         throw new Exception($"Unable to find or create ribbon panel. The name specified in {this.GetType().Name} is null or empty.");
                     }
 
-                    _cachedRibbonPanel = RibbonTab.RibbonPanels
+                    _ribbonPanel = RibbonTab.RibbonPanels
                         .Cast<RibbonPanel>()
                         .FirstOrDefault(p => p.InternalName == RibbonPanelName);
                     
-                    if (_cachedRibbonPanel == null)
+                    if (_ribbonPanel == null)
                     {
-                        _cachedRibbonPanel = RibbonTab.RibbonPanels.Add(RibbonPanelName, RibbonPanelName, Guid.NewGuid().ToString());
+                        _ribbonPanel = RibbonTab.RibbonPanels.Add(RibbonPanelName, RibbonPanelName, Guid.NewGuid().ToString());
                     }
                 }
 
-                return _cachedRibbonPanel;
+                return _ribbonPanel;
             }
         }
 
@@ -169,7 +175,9 @@ namespace Inventor.AddinTemplate.Buttons
                         CommandType, null, Description, Tooltip, SmallIcon, LargeIcon);
                     
                     _buttonDefinition.Enabled = true;
-                    _buttonDefinition.OnExecute += OnExecute;
+                    _buttonDefinition.OnExecute += (NameValueMap context) => Execute(context, AddinServer.InventorApp);
+                    _buttonDefinition.OnHelp += (NameValueMap context, out HandlingCodeEnum handlingCode) => OnHelp(context, out handlingCode);
+                    this.ConfigureProgressiveToolTip(_buttonDefinition.ProgressiveToolTip);
                 }
                 
                 return _buttonDefinition;
