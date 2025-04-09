@@ -1,15 +1,10 @@
 ![open-graph-preview-img](https://raw.githubusercontent.com/bretleasure/Inventor.AddinTemplate/refs/heads/main/Assets/open-graph-preview-img.webp)
 
-<div align="center">
-    
 ![GitHub Release](https://img.shields.io/github/v/release/bretleasure/inventor.addintemplate?logo=github)
 ![GitHub Release](https://img.shields.io/github/v/release/bretleasure/inventor.addintemplate?include_prereleases&logo=github&label=latest%20build)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/inventor.addintemplate?logo=nuget&color=9932CC&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FInventor.AddinTemplate)
-
 ![GitHub License](https://img.shields.io/github/license/bretleasure/inventor.addintemplate?color=salmon)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/bretleasure/inventor.addintemplate/build-deploy.yml?logo=github%20actions&logoColor=white&label=Build%20and%20Deploy)
-
-</div>
 
 ## Inventor Add-in Template
 
@@ -209,6 +204,6 @@ Rider:
 dotnet new install Inventor.AddinTemplate
 ```
 
-![A screenshot of the Visual Studio New Project Window.](https://github.com/bretleasure/Inventor.AddinTemplate/assets/30269827/60114aed-dd7d-4b99-b0ef-5dbfbe8f1b6a)
+![A screenshot of the Visual Studio New Project Window.](https://raw.githubusercontent.com/bretleasure/Inventor.AddinTemplate/main/Assets/vs-new-solution.png)
 
-![A screenshot of the Rider New Solution Window.](https://github.com/bretleasure/Inventor.AddinTemplate/assets/30269827/f7305db2-4f18-4a09-ada2-61a6608c5463)
+![A screenshot of the Rider New Solution Window.](https://raw.githubusercontent.com/bretleasure/Inventor.AddinTemplate/main/Assets/Rider-new-solution.png)
