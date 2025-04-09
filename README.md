@@ -1,12 +1,17 @@
-# Inventor Addin Template
+![open-graph-preview-img](https://raw.githubusercontent.com/bretleasure/Inventor.AddinTemplate/refs/heads/main/Assets/open-graph-preview-img.webp)
 
+<div align="center">
+    
 ![GitHub Release](https://img.shields.io/github/v/release/bretleasure/inventor.addintemplate?logo=github)
 ![GitHub Release](https://img.shields.io/github/v/release/bretleasure/inventor.addintemplate?include_prereleases&logo=github&label=latest%20build)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/inventor.addintemplate?logo=nuget&color=9932CC&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FInventor.AddinTemplate)
+
 ![GitHub License](https://img.shields.io/github/license/bretleasure/inventor.addintemplate?color=salmon)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/bretleasure/inventor.addintemplate/build-deploy.yml?logo=github%20actions&logoColor=white&label=Build%20and%20Deploy)
 
-## Overview
+</div>
+
+# Inventor Addin Template
 
 The goal of this template is to make creating an Inventor addin as easy as
 possible. All that is required is to create the buttons and write the code that
