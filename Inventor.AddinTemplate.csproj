@@ -23,8 +23,8 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="stdole" Version="17.13.40008" />
-      <PackageReference Include="System.Resources.Extensions" Version="9.0.3" />
+      <PackageReference Include="stdole" Version="17.14.40260" />
+      <PackageReference Include="System.Resources.Extensions" Version="9.0.6" />
     </ItemGroup>
 
     <ItemGroup>
