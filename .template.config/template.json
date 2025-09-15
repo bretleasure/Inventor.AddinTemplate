@@ -7,13 +7,14 @@
   "identity": "BretLeasure.Inventor.AddinTemplate",
   "shortName": "inventor-addin",
   "default": "AutodeskInventorAddin",
+  
   "tags": {
     "language": "C#",
     "type": "project"
   },
   "sourceName": "Inventor.AddinTemplate",
   "symbols": {
-    "framework": {
+    "Target Framework": {
       "type": "parameter",
       "datatype": "choice",
       "description": "Select the target .NET framework",      
@@ -32,7 +33,8 @@
       "choices": [
         { "choice": "2023" },
         { "choice": "2024" },
-        { "choice": "2025" }
+        { "choice": "2025" },
+        { "choice": "2026" }
       ],
       "defaultValue": "2025",
       "replaces": "2025"
