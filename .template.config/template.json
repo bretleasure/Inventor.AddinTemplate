@@ -7,13 +7,14 @@
   "identity": "BretLeasure.Inventor.AddinTemplate",
   "shortName": "inventor-addin",
   "default": "AutodeskInventorAddin",
+  
   "tags": {
     "language": "C#",
     "type": "project"
   },
   "sourceName": "Inventor.AddinTemplate",
   "symbols": {
-    "framework": {
+    "Target Framework": {
       "type": "parameter",
       "datatype": "choice",
       "description": "Select the target .NET framework",      
