@@ -33,7 +33,8 @@
       "choices": [
         { "choice": "2023" },
         { "choice": "2024" },
-        { "choice": "2025" }
+        { "choice": "2025" },
+        { "choice": "2026" }
       ],
       "defaultValue": "2025",
       "replaces": "2025"
