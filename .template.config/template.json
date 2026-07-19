@@ -21,7 +21,8 @@
       "choices": [
         { "choice": "net472", "description": ".NETFramework 4.7.2" },
         { "choice": "net48", "description": ".NETFramework 4.8" },
-        { "choice": "net8.0-windows", "description": ".NET 8" }
+        { "choice": "net8.0-windows", "description": ".NET 8" },
+        { "choice": "net10.0-windows", "description": ".NET 10" }
       ],
       "defaultValue": "net472",
       "replaces": "net472"
@@ -34,9 +35,10 @@
         { "choice": "2023" },
         { "choice": "2024" },
         { "choice": "2025" },
-        { "choice": "2026" }
+        { "choice": "2026" },
+        { "choice": "2027" }
       ],
-      "defaultValue": "2025",
+      "defaultValue": "2027",
       "replaces": "2025"
     }
   },
